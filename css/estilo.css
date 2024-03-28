@@ -8,6 +8,11 @@
 body {
     display: flex;
     flex-direction: column;
+    background-color: #F2F7FC;
+}
+
+.articulos {
+    background-color: #FFF;
 }
 
 h1 {
@@ -50,11 +55,6 @@ nav ul li a:hover {
     background-color: rgb(255, 255, 255, 0.2); /*el 0.2 es opacidad*/
 }
 
-img {
-    width: 100%;
-    height: 600px;
-}
-
 .contenido {
     margin: 60px;
 }
@@ -65,14 +65,6 @@ img {
     padding: 20px;
 }
 
-.secciones{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    font-size: 1.5em;
-}
-
 /*Animacion*/
 .animacion {
     display: flex;
@@ -80,18 +72,18 @@ img {
 }
 
 #logo {
-    width: 400px;
-    height: 400px;
-    animation: rotation 2s infinite ;
+    width: 300px;
+    height: 300px;
+    animation: rotation 3s infinite ;
 }
 
 @keyframes rotation{
     from {
-        transform: scaleX(1); /* Escala normal */
-      }
-      to {
-        transform: scaleX(-1); /* Invierte horizontalmente */
-      }
+        transform: scaleX(1);
+    }
+    to {
+        transform: scaleX(-1); 
+    }
 }
 
 /*Descripcion*/
@@ -129,6 +121,11 @@ img {
    display: none;
 }
 
+.elementoSlider img {
+    width: 100%;
+    height: 600px;
+}
+
 .previo, .siguiente {
     cursor: pointer;
     position: absolute;
@@ -150,7 +147,7 @@ img {
 }
   
 .previo:hover, .siguiente:hover {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(41, 99, 193, 0.6);
 }
 
 .fade {
@@ -264,4 +261,52 @@ footer a:hover {
     float: right;
     margin-right: 1%;
     margin-top: 2%;
+}
+
+/*POLITICA PRIVACIDAD Y TERMINO USO*/
+
+#tituloPolitica {
+    font-size: 1.7em;
+    text-decoration: underline;
+}
+
+.politicas #descripcionPoliticas {
+    font-size: 1.4em;
+    text-align: center;
+    margin-top: 1%;
+}
+
+.secciones{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.secciones h2 {
+    font-size: 1.4em;
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: #5893D4;
+}
+
+.secciones p {
+    font-size: 1.3em;
+    margin-bottom: 0.5%;
+}
+
+.politicas #contenedorDescargarPolitcas {
+    display: flex;
+    justify-content: center;
+}
+
+.politicas #descargarPolitcas {
+    padding: 0.5%;
+    font-size: 1.35em;
+    text-align: center;
+    margin-top: 1%;
+    width: 15%;
+    text-decoration: none;
+    color: #F2F7FC;
+    background-color: #163454;
 }
