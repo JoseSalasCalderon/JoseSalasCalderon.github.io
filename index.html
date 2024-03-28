@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Árbol de Seda</title>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <script src="js/slider.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Clínica Árbol de Seda</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="html/registroInicioSesion.html">Registro / Inicio de Sesión</a></li>
+                <li><a href="html/servicios.html">Servicios</a></li>
+                <li><a href="html/agendaCitas.html">Agenda de citas</a></li>
+                <li><a href="html/informacionContacto.html">Información de contacto</a></li>
+                <li><a href="html/busquedaMedicos.html">Búsqueda de médicos</a></li>
+                <li><a href="html/preguntasFrecuentes.html">Preguntas frecuentes (FAQ)</a></li>
+                <li><a href="html/sobreNosotros.html">Sobre nosotros</a></li>
+                <li><a href="html/politicaPrivacidad.html">Política de privacidad y términos de uso</a></li>
+            </ul>
+        </nav> 
+    </header>
+    <main>
+        <div class="contenido">
+            <div class="articulos">
+                <div class="animacion">
+                    <img id="logo" src="img/logo.png" alt="logo.ong">
+                </div>
+                <div class="descripcion">
+                    <h2>Información General</h2>
+                    <p>
+                        "¡Bienvenido a la plataforma de la Clínica Árbol de Seda! Estamos encantados de ofrecerte un
+                        sistema integral que simplifica la gestión de tus citas médicas y te brinda acceso rápido y cómodo a
+                        toda la información que necesitas. Nuestra plataforma ha sido diseñada pensando en tu comodidad y conveniencia,
+                        ofreciéndote una serie de herramientas intuitivas que te permiten agendar tus citas de manera sencilla y eficiente.
+                    </p>
+                    <p>
+                        Con solo unos pocos clics, podrás reservar tus citas médicas con los especialistas de nuestra clínica,
+                        evitando largas esperas y trámites complicados. Además, nuestra plataforma te ofrece la posibilidad de
+                        visualizar detalladamente la información relevante sobre tus citas, incluyendo la fecha, hora y especialidad
+                        médica correspondiente, todo ello presentado de forma clara y fácil de entender.
+                    </p>
+                    <p>
+                        Pero eso no es todo, en la Clínica Árbol de Seda nos preocupamos por brindarte una experiencia completa y personalizada.
+                        Por eso, nuestra plataforma te permite guardar tus citas médicas para tener un registro fácilmente accesible de tu historial
+                        de atención médica. Así, podrás llevar un seguimiento preciso de tus citas anteriores y futuras, así como de cualquier
+                        información relevante que necesites recordar.
+                    </p>
+                    <p>
+                        En resumen, en la Clínica Árbol de Seda te ofrecemos mucho más que un simple sistema de agendamiento de citas médicas.
+                        Te brindamos una herramienta completa y conveniente que te permite gestionar tu salud de manera eficiente, cómoda y segura.
+                        ¡Estamos aquí para cuidarte y facilitarte la vida en cada paso de tu camino hacia el bienestar!".
+                    </p>
+                </div>
+                <div class="contenedorSlider"> <!--contenedor del carrusel-->
+                    <h2>Nuestros Servicios:</h2>
+                    <div class="slider">
+                        <div class="elementoSlider fade"> <img src="img/carrusel1.jpg" alt="carrusel1.jpg"><p class="tituloElemento">Atención</p></div>
+                        <div class="elementoSlider fade"> <img src="img/carrusel2.jpg" alt="carrusel2.jpg"><p class="tituloElemento">Revisión</p></div>
+                        <div class="elementoSlider fade"> <img src="img/carrusel3.jpg" alt="carrusel3.jpg"><p class="tituloElemento">Comunicación</p></div>
+                        <a class="previo" onclick="pasarAnteriorYSiguiente(-1)">&#10094;</a>
+                        <a class="siguiente" onclick="pasarAnteriorYSiguiente(1)">&#10095;</a>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </main>
+    <footer>
+        <p>¡Síguenos en nuestras redes sociales!</p>
+        <div>
+            <a href="https://www.facebook.com/?locale=es_LA">Facebook</a> |
+            <a href="https://twitter.com/?lang=es">X</a> |
+            <a href="https://www.instagram.com/">Instagram</a>
+        </div>
+        <p>Derechos de autor &copy; 2024 Veterinaria Turrialba</p>
+    </footer>
+</body>
