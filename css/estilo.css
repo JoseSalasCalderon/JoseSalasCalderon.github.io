@@ -6,13 +6,85 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
+    margin: 0;
     background-color: #F2F7FC;
 }
 
-.articulos {
-    background-color: #FFF;
+header {
+    width: 100%;
+    background-color: #5893D4;
+}
+
+/*Navegacion*/
+
+#btn-menu {
+    display: none;
+}
+
+header label {
+    display: none;
+    width: 40px;
+    height: 40px;
+    padding: 0.25%;
+}
+
+header label:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.menu ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.menu ul li {
+    flex-grow: 1;
+    text-align: center;
+    border-right: 1px solid #F2F7FC;
+}
+
+.menu ul li:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.menu ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: #F2F7FC;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/*Responsive nav*/
+@media (max-width:768px){
+    header label {
+        display: block;
+    }
+
+    .menu {
+        position: absolute;
+        background-color: #5893D4;
+        width: 50%;
+        margin-left: -70%;
+        z-index: 2; /*prioridad de dibujado*/
+    }
+
+    .menu ul {
+        flex-direction: column;
+    }
+
+    .menu ul li {
+        border-top: 1px solid #F2F7FC;
+    }
+
+    #btn-menu:checked ~ .menu {
+        margin: 0;
+    }
+
 }
 
 h1 {
@@ -25,34 +97,8 @@ h1 {
 
 }
 
-nav ul {
-    background-color: #5893D4;
-    width: 100%; /*ancho*/
-    list-style-type: none;
-    text-align: center;
-    padding: 10px 0;
-}
-
-nav ul li {
-    display: inline-block;
-    margin-right: 20px;
-}
-
-nav ul li:last-child {
-    margin-right: 0;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #F2F7FC;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    font-size: 1.1em;
-}
-
-nav ul li a:hover {
-    background-color: rgb(255, 255, 255, 0.2); /*el 0.2 es opacidad*/
+main {
+    min-height: 75vh;
 }
 
 .contenido {
@@ -63,10 +109,12 @@ nav ul li a:hover {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
+    background-color: #fff;
 }
 
 /*Animacion*/
 .animacion {
+    position: relative;
     display: flex;
     justify-content: center;
 }
