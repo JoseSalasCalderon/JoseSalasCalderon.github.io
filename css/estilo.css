@@ -1,4 +1,6 @@
 /*PALETA: color: #5893D4, #D49958, #543716, #FCF7F2, #163454, #F2F7FC;*/
+
+/*ESTILOS GENERALES*/
 *{ 
     padding: 0; /*ningún elemento tiene relleno adicional en su interior*/
     margin: 0;
@@ -13,6 +15,38 @@ body {
 header {
     width: 100%;
     background-color: #5893D4;
+}
+
+#tituloGeneral {
+
+    text-align: center;
+    background-color: #163454;
+    color: #F2F7FC;
+    padding: 20px;
+    font-size: 2.5em;
+
+}
+
+main {
+    min-height: 75vh;
+}
+
+.contenido {
+    margin: 30px;
+}
+
+.articulos {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.secciones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
 }
 
 /*Navegacion*/
@@ -59,59 +93,6 @@ header label:hover {
     font-size: 0.9em;
 }
 
-/*Responsive nav*/
-@media (max-width:768px){
-    header label {
-        display: block;
-    }
-
-    .menu {
-        position: absolute;
-        background-color: #5893D4;
-        width: 50%;
-        margin-left: -70%;
-        z-index: 2; /*prioridad de dibujado*/
-    }
-
-    .menu ul {
-        flex-direction: column;
-    }
-
-    .menu ul li {
-        border-top: 1px solid #F2F7FC;
-    }
-
-    #btn-menu:checked ~ .menu {
-        margin: 0;
-    }
-
-}
-
-h1 {
-
-    text-align: center;
-    background-color: #163454;
-    color: #F2F7FC;
-    padding: 20px;
-    font-size: 2.5em;
-
-}
-
-main {
-    min-height: 75vh;
-}
-
-.contenido {
-    margin: 60px;
-}
-
-.articulos {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-}
-
 /*Animacion*/
 .animacion {
     position: relative;
@@ -139,11 +120,12 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px;
+    padding: 20px;
     font-size: 1.5em;
 }
 
 .descripcion h2 {
+    text-align: center;
     font-size: 2em;
 }
 
@@ -167,11 +149,13 @@ main {
 
 .elementoSlider {
    display: none;
+   width: 100%;
+   
 }
 
 .elementoSlider img {
     width: 100%;
-    height: 600px;
+    height: 40em;
 }
 
 .previo, .siguiente {
@@ -253,10 +237,10 @@ footer a:hover {
 /* INICIO DE SESIÓN*/
 
 .formulario {
-    width: 400px;
+    width: 25em;
     display: flex;
     flex-direction: column;
-    margin:  0 auto;
+    margin: auto;
     background-color: #F2F2F2;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -311,9 +295,107 @@ footer a:hover {
     margin-top: 2%;
 }
 
+
+/*SOBRE NOSOTROS*/
+
+.sobreNosotros {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /*Modifica en horizontal el flex ser vertical por colum*/
+}
+
+.sobreNosotros .secciones {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.sobreNosotros h1 {
+    text-align: center;
+    font-size: 2.7em;
+    padding: 20px;
+}
+.sobreNosotros h2 {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.sobreNosotros h3 {
+    font-size: 1.2em;
+}
+
+.sobreNosotros p {
+    width: 100%;
+    font-size: 1.2em;
+    margin-bottom: 0.5%;
+}
+
+.valores {
+    margin-left: 5%;
+}
+
+.equipo {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    width: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.equipo .miembroEquipo {
+    width: 47%;
+    margin: 5px;
+    background: #F2F7FC;
+    border: solid;
+    border-color: #adcced;
+    padding: 20px 10px;
+}
+
+.equipo .miembroEquipo .miembroImagen{
+    background: #adcced;
+    max-width: 18em;
+    width: 100%;
+    height: 20em;
+    margin:  0 auto;
+    border-radius: 50%;
+    padding: 5px;
+    position: relative;
+}
+
+.equipo img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.equipo .miembroEquipo h4{
+    text-transform: uppercase;
+    font-size: 1.125em;
+    line-height: 1.125em;
+    letter-spacing: 2px;
+    margin: 15px 0 0;
+}
+
+.equipo .miembroEquipo span{
+    font-size: 0.9em;
+}
+
+.equipo .miembroEquipo p{
+    margin-top: 5%;
+    font-size: 1em;
+    line-height: 100%;
+}
+
 /*POLITICA PRIVACIDAD Y TERMINO USO*/
 
 #tituloPolitica {
+    text-align: center;
+    background-color: #163454;
+    color: #F2F7FC;
+    padding: 20px;
     font-size: 1.7em;
     text-decoration: underline;
 }
@@ -324,13 +406,7 @@ footer a:hover {
     margin-top: 1%;
 }
 
-.secciones{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
-
-.secciones h2 {
+.seccionesPrivacidad h2 {
     font-size: 1.4em;
     text-align: center;
     margin-top: 1%;
@@ -338,7 +414,7 @@ footer a:hover {
     background-color: #5893D4;
 }
 
-.secciones p {
+.seccionesPrivacidad p {
     font-size: 1.3em;
     margin-bottom: 0.5%;
 }
@@ -353,8 +429,114 @@ footer a:hover {
     font-size: 1.35em;
     text-align: center;
     margin-top: 1%;
-    width: 15%;
+    width: auto;
     text-decoration: none;
     color: #F2F7FC;
     background-color: #163454;
+}
+
+/*RESPONSIVE*/
+@media screen and (max-width:768px){
+    
+    /*Responsive nav*/
+    header label {
+        display: block;
+    }
+
+    .menu {
+        position: absolute;
+        background-color: #5893D4;
+        width: 50%;
+        margin-left: -70%;
+        z-index: 2; /*prioridad de dibujado*/
+    }
+
+    .menu ul {
+        flex-direction: column;
+    }
+
+    .menu ul li {
+        border-top: 1px solid #F2F7FC;
+    }
+
+    #btn-menu:checked ~ .menu {
+        margin: 0;
+    }
+
+    /*Responsive Index*/
+    .descripcion {
+        font-size: 1em;
+    }
+
+    .elementoSlider img {
+        height: 15em;
+    }
+
+    /*Responsive Inicio Sesion*/
+    #tituloGeneral {
+        font-size: 2em;
+    }
+    .formulario {
+        width: 100%;
+    }
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+    }
+
+
+    /*Responsive Sobre Nosotros*/
+    .articulos {
+        width: 100%;
+    }
+    .sobreNosotros .secciones {
+        width: 100%;
+    }
+    .sobreNosotros h3 {
+        font-size: 1.1em;
+    }
+    .sobreNosotros p {
+        font-size: 1em;
+    }
+    .equipo .miembroEquipo {
+        width: 100%;
+    }
+
+    
+    /*Respoinsive Politicas*/
+    .politicas {
+        padding: 5px;
+    }
+
+    .politicas #descripcionPoliticas {
+        font-size: 1.1em;
+    }
+
+    .seccionesPrivacidad {
+        width: 100%;
+    }
+
+    .seccionesPrivacidad h2 {
+        width: 100%;
+        font-size: 1.2em;
+    }
+
+    .seccionesPrivacidad p {
+        width: 100%;
+        font-size: 0.9em;
+    }
+}
+
+/*Responsive Ipad Mini 768px*/
+@media (width:768px){
+    .formulario {
+        width: 25em;
+    }
+    .equipo .miembroEquipo {
+        width: 47%;
+    }
+
+    .articulos {
+        width: 90%;
+    }
 }
