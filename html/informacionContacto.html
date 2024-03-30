@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Árbol de Seda</title><link rel="stylesheet" type="text/css" href="../css/estilo.css">
+</head>
+<body>
+    <header>
+        <h1 id="tituloGeneral">Clínica Árbol de Seda</h1>
+        <input type="checkbox" id="btn-menu">
+        <label for="btn-menu"><img src="../img/menu-30.png" alt="menu.png"></label>
+        <nav class="menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="registroInicioSesion.html">Inicio de Sesión</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="agendaCitas.html">Agenda Citas</a></li>
+                <li><a href="informacionContacto.html">Información Contacto</a></li>
+                <li><a href="busquedaMedicos.html">Búsqueda Médicos</a></li>
+                <li><a href="preguntasFrecuentes.html">Preguntas frecuentes</a></li>
+                <li><a href="sobreNosotros.html">Sobre nosotros</a></li>
+                <li><a href="politicaPrivacidad.html">Política de privacidad</a></li>
+            </ul>
+        </nav> 
+    </header>
+    <main>
+        <div class="contenido">
+            <div class="articulos contactoArticulo">
+                <h1>Información de Contacto</h1>
+                <p id="descripcionInformacionContacto">
+                    En la sección de Información de Contacto de la Clínica Médica Árbol de Seda, los pacientes y visitantes pueden encontrar
+                    todos los detalles necesarios para comunicarse con nosotros. Desde nuestra dirección física hasta nuestros números de teléfono
+                    y correo electrónico, esta sección proporciona a los usuarios múltiples formas de ponerse en contacto con nuestro equipo
+                    médico y administrativo.
+                </p>
+                <div class="contenedorInformacion">
+                    <div class="contactos">
+                        <h2>Dirección:</h2>
+                        <p>Calle Principal 123, Ciudad Central, País</p>
+                        <h2>Número de Teléfono:</h2>
+                        <p>+1234567890</p>
+                        <h2>Correo Electrónico:</h2>
+                        <p>info@arboldeseda.com</p>
+                    </div>
+                    <div class="contactos">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7860.733785813981!2d-83.68921592420051!3d9.90336920377507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1shospital%20william%20allen!5e0!3m2!1ses-419!2scr!4v1711754552617!5m2!1ses-419!2scr"></iframe>
+                    </div>
+                </div>
+                <div class="consultasGenerales">
+                    <form action="">
+                        <h2>Consultas</h2>
+                        <div class="formConsultas">
+                            <label>Título Consulta:</label>
+                            <input id="consulta" type="text" required>
+                        </div>
+                        <div class="formConsultas">
+                            <label>Describción:</label>
+                            <textarea id="consultaDescripcion" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="formConsultas">
+                            <input id="enviarConsulta" type="submit" value="Enviar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
