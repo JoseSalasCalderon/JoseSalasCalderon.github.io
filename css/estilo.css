@@ -93,6 +93,33 @@ header label:hover {
     font-size: 0.9em;
 }
 
+/*Footer*/
+footer {
+    position: static;
+    width: 100%;
+    background-color: #333;
+    color: #F2F7FC;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #F2F7FC;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #F2F7FC;
+}
+
+
+/*INICIO*/
+
 /*Animacion*/
 .animacion {
     position: relative;
@@ -209,30 +236,6 @@ header label:hover {
     }
 }
 
-/*Footer*/
-footer {
-    position: static;
-    width: 100%;
-    background-color: #333;
-    color: #F2F7FC;
-    text-align: center;
-    padding: 20px 0;
-}
-
-footer p {
-    margin-bottom: 10px;
-}
-
-footer a {
-    color: #F2F7FC;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #F2F7FC;
-}
-
 
 /* INICIO DE SESIÓN*/
 
@@ -293,6 +296,99 @@ footer a:hover {
     float: right;
     margin-right: 1%;
     margin-top: 2%;
+}
+
+
+/*SERVICIOS*/
+
+.articuloServicios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.descripcionServicios {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.descripcionServicios h1{
+    width: 100%;
+    text-align: center;
+    font-size: 2.5em;
+    background-color: #163454;
+    padding: 0.2em;
+    color: #F2F7FC;
+}
+
+.descripcionServicios p{
+    padding: 1em;
+    font-size: 1.1em;
+    background-color: #F2F7FC;
+}
+
+#tituloTiposCitas{
+    width: 80%;
+    margin-top: 5%;
+    background-color: #163454;
+    color: #F2F7FC;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.tiposCitas {
+    width: 80%;
+    height: auto; /*Necesario para que el wrap no se superponga*/
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1em;
+}
+
+.tiposCitas h3{
+    text-align: center;
+    background-color: #163454;
+    color: #F2F7FC;
+}
+
+.citas {
+    width: 25em; /*Un with estatico permite que el wrap funcione*/
+    margin: 0.5em;
+    
+}
+
+.citas p {
+    font-size: 1.2em;
+    background-color: #F2F7FC;
+    border: 0.2em solid #163454;
+    padding: 0.2em;
+}
+
+.informacionMedicos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin-top: 3%;
+    background-color: #F2F7FC;
+}
+
+.informacionMedicos h2 {
+    width: 100%;
+    text-align: center;
+    background-color: #163454;
+    color: #F2F7FC;
+}
+
+.informacionMedicos h3 {
+    color: #5893D4;
+}
+
+.especialidades {
+    padding: 1em;
+    width: 100%;
 }
 
 /*INFORMACIÓN CONTACTO*/
@@ -639,6 +735,11 @@ iframe {
         width: 100%;
     }
 
+    /*Responsive Servicios*/
+    .descripcionServicios, #tituloTiposCitas, .tiposCitas, .informacionMedicos, .especialidades {
+        width: 100%;
+    }
+
     /*Responsive Informacion Contacto*/
     .contenedorInformacion {
         flex-wrap: wrap;
@@ -664,7 +765,6 @@ iframe {
         width: 100%;
     }
 
-    
     /*Respoinsive Politicas*/
     .politicas {
         padding: 5px;
@@ -702,5 +802,11 @@ iframe {
     }
     .consultasGenerales {
         width: 70%;
+    }
+    .descripcionServicios, #tituloTiposCitas, .tiposCitas, .especialidades {
+        width: 80%;
+    }
+    .informacionMedicos {
+        width: 50%;
     }
 }
