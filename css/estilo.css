@@ -484,6 +484,111 @@ iframe {
     width: 4em;
 }
 
+/*BUSCAR MÉDICOS*/
+.articuloBuscarMedicos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formularioBuscarMedicos {
+    width: 60%;
+}
+
+.formularioBuscarMedicos h2{
+    width: 100%;
+    text-align: center;
+    background-color: #163454;
+    color: #F2F7FC;
+    margin-bottom: 1em;
+}
+
+.formularioBuscarMedicos label{
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.formularioBuscarMedicos form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#inputsBusqueda {
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+}
+
+#inputsBusqueda input {
+    width: 50%;
+    margin-right: 1em;
+}
+
+#inputsBusqueda select {
+    width: 25%;
+    height: 3em;
+    font-weight: bold;
+    margin-right: 1em;
+}
+
+.enviarFormulario {
+    width: 7em;
+    text-align: center;
+}
+
+.contenedorTabla {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+}
+
+.resultados {
+    border-collapse: collapse;
+    
+}
+
+.contenedorTabla h2 {
+    text-align: center;
+    background-color: #5893D4;
+    width: 100%;
+    border: 0.1em solid #000;
+    
+}
+
+.contenedorTabla th {
+    background-color: #163454;
+    padding: 1em;
+    color: #F2F7FC;
+    border: 0.1em solid #000;
+}
+
+.contenedorTabla td {
+    padding: 1em;
+    border: 0.1em solid #000;
+}
+
+.contenedorTabla td button{
+    background-color: #5893D4;
+    border: 0;
+    cursor: pointer;
+    padding: 3px 7px;
+    color: #F2F7FC;
+}
+
+#paginacion {
+    margin-top: 1em;
+}
+
+#paginacion button{
+    margin-left: 0.5em;
+    font-size: 1.1em;
+    padding: 0.1em 0.3em;
+}
+
+
 /*PREGUNTAS FRECUENTES*/
 
 .contenedorPreguntas {

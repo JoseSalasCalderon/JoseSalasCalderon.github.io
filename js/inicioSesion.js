@@ -1,26 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
     const formulario = document.getElementById("formulario");
-    console.log("xD")
     formulario.addEventListener("submit", (event) => {
         event.preventDefault();
 
         const elementos = document.getElementsByClassName("enviarFormulario");
         const tipoFormulario = elementos[0].value.trim();        
-        console.log("Tipo formulario "+tipoFormulario);
 
         if (tipoFormulario === "Ingresar") {
             const { cedula, contrasenna } = obtenerDatosFormularioInicioSesion();
             const esValido = validarContrasenna(contrasenna) && validarCedula(cedula);
-            console.log(contrasenna)
             esValido ? manejarExito() : manejarError();
         }else if (tipoFormulario === "Registrar") {
             const { cedula, nombreCompleto, apellido, telefono, correo, contrasenna  } = obtenerDatosFormularioRegistro();
-            console.log(cedula)
-            console.log(nombreCompleto)
-            console.log(apellido)
-            console.log(telefono)
-            console.log(correo)
-            console.log(contrasenna)
             const esValido = validarCedula(cedula) && validarNombre(nombreCompleto) && validarApellidos(apellido) && validarTelefono(telefono) &&
             validarCorreo(correo) && validarContrasenna(contrasenna);
             esValido ? manejarExito() : manejarError();

@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica Árbol de Seda</title><link rel="stylesheet" type="text/css" href="../css/estilo.css">
+    <script src="../js/medicos.js"></script>
 </head>
 <body>
     <header>
@@ -28,8 +29,44 @@
     </header>
     <main>
         <div class="contenido">
-            <div class="articulos">
-
+            <div class="articulos articuloBuscarMedicos">
+                <div class="formulario formularioBuscarMedicos">
+                    <h2>Buscar Médicos</h2>
+                    <form id="formulario" method="post">
+                        <div class="usuarios">
+                            <label>Búsqueda:</label>
+                            <div id="inputsBusqueda">
+                                <input id="busqueda" type="text" list="autocompletar" required>
+                                <datalist id="autocompletar">
+                                    <option value="Ana">Ana</option>
+                                    <option value="Armando">Armando</option>
+                                    <option value="Alison">Alison</option>
+                                </datalist>
+                                <select id="filtro">
+                                    <option value="nombre">Nombre</option>
+                                    <option value="especialidad">Especialidad</option>
+                                    <option value="ubicacion">Ubicación</option>
+                                    <option value="id">Identificación</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input class="enviarFormulario" id="buscarMedico" type="submit" value="Buscar">
+                    </form>
+                </div>
+                <div class="contenedorTabla">
+                    <h2>Resultados:</h2>
+                    <table class="resultados">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Especialidad</th>
+                            <th>Ubicación</th>
+                            <th>Identificación</th>
+                            <th>Ver</th>
+                        </tr>
+                        <tbody id="cuerpoTabla"></tbody>
+                    </table>
+                    <div id="paginacion"></div>
+                </div>
             </div>
         </div>
     </main>
