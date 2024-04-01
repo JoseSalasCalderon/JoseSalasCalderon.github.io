@@ -90,49 +90,79 @@ const medicos = [
         biografia: "Sofía es un cardiólogo altamente experimentado y capacitado que se especializa en el diagnóstico y tratamiento de enfermedades del corazón. Con una sólida formación médica y años de experiencia práctica, el Dr. Fernández se compromete a brindar una atención integral y personalizada a sus pacientes."
     },
     {
-        id: "CD009",
-        nombre: "Sofía2",
-        apellido: "Fernández",
-        especialidad: "Cardiología",
-        ubicacion: "Hospital Cardiológico, Clínica Árbol de Seda",
-        disponibilidad: "Lunes a viernes de 8:00 a.m. a 4:00 p.m.",
+        id: "CD010",
+        nombre: "Gabriel",
+        apellido: "González",
+        especialidad: "Dermatología",
+        ubicacion: "Consultorio Dermatológico, Clínica Árbol de Seda",
+        disponibilidad: "Lunes y jueves de 9:00 a.m. a 3:00 p.m.",
         contacto: "+1234567890",
-        email: "dr.carlosfernandez@arboldeseda.com",
+        email: "dr.gabrielgonzalez@arboldeseda.com",
         reseñas: [
-            { usuario: "Usuario7", comentario: "Muy bien informado y profesional. Me explicó claramente mi condición.", calificacion: 4 },
-            { usuario: "Usuario8", comentario: "Excelente atención, lo recomendaría a cualquier persona con problemas cardíacos.", calificacion: 5 }
+            { usuario: "Usuario9", comentario: "Gran dermatólogo, muy eficiente en su trabajo.", calificacion: 4.5 },
+            { usuario: "Usuario10", comentario: "Me ayudó mucho con mi problema de piel, lo recomiendo totalmente.", calificacion: 5 }
         ],
-        biografia: "Sofía es un cardiólogo altamente experimentado y capacitado que se especializa en el diagnóstico y tratamiento de enfermedades del corazón. Con una sólida formación médica y años de experiencia práctica, el Dr. Fernández se compromete a brindar una atención integral y personalizada a sus pacientes."
+        biografia: "Gabriel es un dermatólogo con experiencia en el tratamiento de una amplia gama de enfermedades de la piel. Se especializa en ofrecer soluciones efectivas y personalizadas para las necesidades dermatológicas de sus pacientes."
     },
     {
-        id: "CD009",
-        nombre: "Sofía3",
-        apellido: "Fernández",
-        especialidad: "Cardiología",
-        ubicacion: "Hospital Cardiológico, Clínica Árbol de Seda",
-        disponibilidad: "Lunes a viernes de 8:00 a.m. a 4:00 p.m.",
+        id: "CD011",
+        nombre: "Carolina",
+        apellido: "López",
+        especialidad: "Endocrinología",
+        ubicacion: "Consultorio de Endocrinología, Clínica Árbol de Seda",
+        disponibilidad: "Martes y viernes de 10:00 a.m. a 5:00 p.m.",
         contacto: "+1234567890",
-        email: "dr.carlosfernandez@arboldeseda.com",
+        email: "dra.carolinalopez@arboldeseda.com",
         reseñas: [
-            { usuario: "Usuario7", comentario: "Muy bien informado y profesional. Me explicó claramente mi condición.", calificacion: 4 },
-            { usuario: "Usuario8", comentario: "Excelente atención, lo recomendaría a cualquier persona con problemas cardíacos.", calificacion: 5 }
+            { usuario: "Usuario11", comentario: "Excelente endocrinóloga, muy conocedora de su campo.", calificacion: 5 },
+            { usuario: "Usuario12", comentario: "Me ayudó a controlar mi problema hormonal, estoy muy agradecida.", calificacion: 4.5 }
         ],
-        biografia: "Sofía es un cardiólogo altamente experimentado y capacitado que se especializa en el diagnóstico y tratamiento de enfermedades del corazón. Con una sólida formación médica y años de experiencia práctica, el Dr. Fernández se compromete a brindar una atención integral y personalizada a sus pacientes."
+        biografia: "Carolina es una endocrinóloga comprometida con proporcionar un cuidado integral y especializado a sus pacientes. Con una sólida formación en endocrinología, se esfuerza por ofrecer tratamientos efectivos y personalizados para una variedad de condiciones hormonales."
     },
     {
-        id: "CD009",
-        nombre: "Sofía4",
-        apellido: "Fernández",
-        especialidad: "Cardiología",
-        ubicacion: "Hospital Cardiológico, Clínica Árbol de Seda",
-        disponibilidad: "Lunes a viernes de 8:00 a.m. a 4:00 p.m.",
+        id: "CD012",
+        nombre: "Pedro",
+        apellido: "Martínez",
+        especialidad: "Neurología",
+        ubicacion: "Consultorio de Neurología, Clínica Árbol de Seda",
+        disponibilidad: "Miércoles de 8:00 a.m. a 12:00 p.m., viernes de 1:00 p.m. a 5:00 p.m.",
         contacto: "+1234567890",
-        email: "dr.carlosfernandez@arboldeseda.com",
+        email: "dr.pedromartinez@arboldeseda.com",
         reseñas: [
-            { usuario: "Usuario7", comentario: "Muy bien informado y profesional. Me explicó claramente mi condición.", calificacion: 4 },
-            { usuario: "Usuario8", comentario: "Excelente atención, lo recomendaría a cualquier persona con problemas cardíacos.", calificacion: 5 }
+            { usuario: "Usuario13", comentario: "Gran neurocirujano, muy profesional y compasivo.", calificacion: 5 },
+            { usuario: "Usuario14", comentario: "Me ayudó a entender mi condición neurológica y me brindó un excelente tratamiento.", calificacion: 4 }
         ],
-        biografia: "Sofía es un cardiólogo altamente experimentado y capacitado que se especializa en el diagnóstico y tratamiento de enfermedades del corazón. Con una sólida formación médica y años de experiencia práctica, el Dr. Fernández se compromete a brindar una atención integral y personalizada a sus pacientes."
+        biografia: "Pedro es un neurocirujano altamente capacitado y experimentado en el diagnóstico y tratamiento de trastornos neurológicos. Su enfoque compasivo y su dedicación a sus pacientes lo convierten en una opción ideal para aquellos que buscan atención neurológica de calidad."
+    },
+    {
+        id: "CD013",
+        nombre: "María",
+        apellido: "Sánchez",
+        especialidad: "Oftalmología",
+        ubicacion: "Consultorio de Oftalmología, Clínica Árbol de Seda",
+        disponibilidad: "Lunes y jueves de 10:00 a.m. a 4:00 p.m., sábado de 9:00 a.m. a 1:00 p.m.",
+        contacto: "+1234567890",
+        email: "dra.mariasanchez@arboldeseda.com",
+        reseñas: [
+            { usuario: "Usuario15", comentario: "Excelente oftalmóloga, me ayudó mucho con mi problema de visión.", calificacion: 4.5 },
+            { usuario: "Usuario16", comentario: "Muy profesional y amable, la recomiendo totalmente.", calificacion: 5 }
+        ],
+        biografia: "María es una oftalmóloga con experiencia en el diagnóstico y tratamiento de una variedad de problemas oculares. Con un enfoque en la atención compasiva y personalizada, se esfuerza por brindar soluciones efectivas para mejorar la salud ocular de sus pacientes."
+    },
+    {
+        id: "CD014",
+        nombre: "David",
+        apellido: "González",
+        especialidad: "Ortopedia",
+        ubicacion: "Consultorio de Ortopedia, Clínica Árbol de Seda",
+        disponibilidad: "Martes y viernes de 9:00 a.m. a 3:00 p.m.",
+        contacto: "+1234567890",
+        email: "dr.davidgonzalez@arboldeseda.com",
+        reseñas: [
+            { usuario: "Usuario17", comentario: "Gran ortopedista, me ayudó a recuperarme rápidamente de mi lesión.", calificacion: 5 },
+            { usuario: "Usuario18", comentario: "Muy profesional y atento, lo recomendaría sin dudarlo.", calificacion: 4.5 }
+        ],
+        biografia: "David es un ortopedista con experiencia en el tratamiento de una amplia gama de lesiones y trastornos musculoesqueléticos. Su enfoque centrado en el paciente y su habilidad para proporcionar soluciones efectivas hacen de él una opción confiable para aquellos que buscan atención ortopédica de calidad."
     }
 ];
 
@@ -142,50 +172,71 @@ let paginaActual = 1;
 document.addEventListener("DOMContentLoaded", () => {
     
     //Cargar tabla primera vez (ordenar)
-    cargarMedicos(medicos);
-    actualizarPaginacion(medicos, medicos.length);
+    const medicosOrdenadosNombre = ordenarMedicos(medicos, "nombre");
+    cargarMedicos(medicosOrdenadosNombre);
+    actualizarPaginacion(medicosOrdenadosNombre, medicosOrdenadosNombre.length);
 
-
+    //Cada vez que se escriba algo en el espacio de búsqueda se llama a este método
     const busquedaInput = document.getElementById("busqueda");
     busquedaInput.addEventListener("input", () => {
         const valorBusqueda = busquedaInput.value.trim();
         if (valorBusqueda === "") {
-            paginaActual = 1;
-            cargarMedicos(medicos);
-            actualizarPaginacion(medicos, medicos.length);
-        }else{
             const filtros = document.getElementById("filtro");
-            const flitroSeleccionado =filtros.value;
+            const flitroSeleccionado = filtros.value;
+            const medicosOrdenados = ordenarMedicos(medicos, flitroSeleccionado);
+            paginaActual = 1;
+            cargarMedicos(medicosOrdenados);
+            actualizarPaginacion(medicosOrdenados, medicosOrdenados.length);
+        }else {
+            const filtros = document.getElementById("filtro");
+            const flitroSeleccionado = filtros.value;
             //Buscar médicos por filtro
             let medicosFiltrados = [];
             for (var id in medicos) {
                 var medico = medicos[id];
                 if (medico[flitroSeleccionado].toLowerCase().includes(valorBusqueda.toLowerCase())) {
                     medicosFiltrados.push(medico);
-                }
-            }
-            //ORDENARLO ACA
-            if (medicosFiltrados.length>0) {
+                };
+            };
+            //Se ordenan los médicos
+            const medicosOrdenados = ordenarMedicos(medicosFiltrados, flitroSeleccionado);
+            if (medicosOrdenados.length>0) {
                 paginaActual = 1;
-                cargarMedicos(medicosFiltrados);
-                actualizarPaginacion(medicosFiltrados, medicosFiltrados.length);
-            }
+                cargarMedicos(medicosOrdenados);
+                actualizarPaginacion(medicosOrdenados, medicosOrdenados.length);
+            };
+        };
+    });
+
+    //Esto es para que se haga una búsqueda cuando se cambia el combo
+    const filtros= document.getElementById("filtro");
+    filtros.addEventListener("change", () => {
+        const flitroSeleccionado = filtros.value;
+        const valorBusqueda = busquedaInput.value.trim();
+
+        // Verificar si hay un valor de búsqueda para recargar los médicos según el nuevo filtro
+        if (valorBusqueda === "") {
+            const medicosOrdenados = ordenarMedicos(medicos, flitroSeleccionado);
+            paginaActual = 1;
+            cargarMedicos(medicosOrdenados);
+            actualizarPaginacion(medicosOrdenados, medicosOrdenados.length);
+        } else {
+            //Buscar médicos por filtro
+            let medicosFiltrados = [];
+            for (var id in medicos) {
+                var medico = medicos[id];
+                if (medico[flitroSeleccionado].toLowerCase().includes(valorBusqueda.toLowerCase())) {
+                    medicosFiltrados.push(medico);
+                };
+            };
+            //Se ordenan los médicos
+            const medicosOrdenados = ordenarMedicos(medicosFiltrados, flitroSeleccionado);
+            paginaActual = 1;
+            cargarMedicos(medicosOrdenados);
+            actualizarPaginacion(medicosOrdenados, medicosOrdenados.length);
         }
     });
 
-    //Formulario Buscar
-    const formulario = document.getElementById("formulario");
-    formulario.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const elementos = document.getElementsByClassName("enviarFormulario");
-        const tipoFormulario = elementos[0].value.trim();        
-        //Verificar que es el de Buscar
-        if (tipoFormulario === "Buscar") {
-            
-        }
-        
-    });
 });
 
 const cargarMedicos = (medicos) => {
@@ -229,4 +280,15 @@ const actualizarPaginacion = (medicos, totalMedicos) => {
     }
 };
 
+const ordenarMedicos = (medicos, criterioFiltro) => {
+    const medicosOrdenados = medicos.slice();
 
+
+    medicosOrdenados.sort((a, b) => {
+        if (a[criterioFiltro] < b[criterioFiltro]) return -1;
+        if (a[criterioFiltro] > b[criterioFiltro]) return 1;
+        return 0;
+    });
+
+    return medicosOrdenados;
+};

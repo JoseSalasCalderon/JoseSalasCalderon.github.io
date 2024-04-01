@@ -532,11 +532,6 @@ iframe {
     margin-right: 1em;
 }
 
-.enviarFormulario {
-    width: 7em;
-    text-align: center;
-}
-
 .contenedorTabla {
     display: flex;
     flex-direction: column;
