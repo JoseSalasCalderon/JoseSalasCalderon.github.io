@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica Árbol de Seda</title><link rel="stylesheet" type="text/css" href="../css/estilo.css">
+    <script src="../js/inicioSesion.js"></script>
 </head>
 <body>
     <header>
@@ -28,8 +29,22 @@
     </header>
     <main>
         <div class="contenido">
-            <div class="articulos">
+            <div class="formulario">
+                <h2>Iniciar Sesión</h2>
+                <form id="formulario" method="post">
+                    <div class="usuarios">
+                        <label>Número de Cédula:</label>
+                        <input id="cedula" type="text" placeholder="Ejemplo: 03-1111-2222" required>
+                    </div>
+                    <div class="usuarios">
+                        <label>Contraseña:</label>
+                        <input id="contrasenna" type="password" required>
+                        <a id="recuperarContrasenna" href="recuperarContrasenna.html">Recuperar contraseña</a>
+                    </div>
 
+                    <input class="enviarFormulario" id="botonIngresar" type="submit" value="Ingresar">
+                    <a href="registroNuevoUsuario.html">Registrame</a>
+                </form>
             </div>
         </div>
     </main>
@@ -43,3 +58,7 @@
         <p>Derechos de autor &copy; 2024 Árbol de Seda</p>
     </footer>
 </body>
+
+
+
+</html>

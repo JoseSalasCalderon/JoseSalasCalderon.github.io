@@ -790,7 +790,7 @@ iframe {
 }
 
 /*Responsive Ipad Mini 768px*/
-@media (width:768px){
+@media screen and (width:768px){
     .formulario {
         width: 25em;
     }
