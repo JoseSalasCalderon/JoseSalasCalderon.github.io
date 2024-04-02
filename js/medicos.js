@@ -255,7 +255,9 @@ const cargarMedicos = (medicos) => {
             <td>${medicos[index].especialidad}</td>
             <td>${medicos[index].ubicacion}</td>
             <td>${medicos[index].id}</td>
-            <td><button onclick="mostrarInformacionMedico('${medicos[index].nombre}', '${medicos[index].especialidad}', '${medicos[index].ubicacion}', '${medicos[index].id}')">Ver</button></td>
+            <td>
+                <button onclick="mostrarInformacionMedico('${medicos[index].id}', '${medicos[index].nombre}', '${medicos[index].apellido}', '${medicos[index].especialidad}', '${medicos[index].ubicacion}', '${medicos[index].disponibilidad}', '${medicos[index].contacto}', '${medicos[index].email}', '${medicos[index].reseñas}', '${medicos[index].biografia}')">Ver</button>
+            </td>
         </tr>`;
 
         cuerpoTabla.innerHTML += filaMedico;
@@ -283,7 +285,7 @@ const actualizarPaginacion = (medicos, totalMedicos) => {
 const ordenarMedicos = (medicos, criterioFiltro) => {
     const medicosOrdenados = medicos.slice();
 
-
+    //Se compara y ordena mediante el filtro seleccionado.
     medicosOrdenados.sort((a, b) => {
         if (a[criterioFiltro] < b[criterioFiltro]) return -1;
         if (a[criterioFiltro] > b[criterioFiltro]) return 1;
@@ -291,4 +293,41 @@ const ordenarMedicos = (medicos, criterioFiltro) => {
     });
 
     return medicosOrdenados;
+};
+
+const mostrarInformacionMedico = (id, nombre, apellido, especialidad, ubicacion, disponibilidad, contacto, email, reseñas, biografia) => {
+    const informacionMedico = document.getElementById("informacionMedico");
+    const filaDesplegadaMedico = `
+        <h3>Identificación:</h3>
+        <p>${id}</p>
+        <h3>Nombre:</h3>
+        <p>${nombre}</p>
+        <h3>Apellido:</h3>
+        <p>${apellido}</p>
+        <h3>Especialidad:</h3>
+        <p>${especialidad}</p>
+        <h3>Ubicación:</h3>
+        <p>${ubicacion}</p>
+        <h3>Disponibilidad:</h3>
+        <p>${disponibilidad}</p>
+        <h3>Contacto:</h3>
+        <p>${contacto}</p>
+        <h3>Email:</h3>
+        <p>${email}</p>
+        <h3>Biografía:</h3>
+        <p>${biografia}</p>
+        <h3>Reseñas:</h3>
+    `;
+    informacionMedico.innerHTML = filaDesplegadaMedico;
+    abrirModalMedicos();
+};
+
+const abrirModalMedicos = () => {
+    const modal = document.getElementById("modalInformacionMedico");
+    modal.style.display = "flex";
+};
+
+const cerrarModalMedicos = () => {
+    const modal = document.getElementById("modalInformacionMedico");
+    modal.style.display = "none";
 };
