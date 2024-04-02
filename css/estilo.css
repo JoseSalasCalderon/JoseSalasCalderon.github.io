@@ -646,7 +646,8 @@ iframe {
     border-bottom: 2px solid #163454;
     border-left: 2px solid #163454;
     border-right: 2px solid #163454;
-    padding-left: 1em;
+    padding-left: 0.5em;
+    overflow: auto;
 }
 
 #informacionMedico ul {
@@ -877,6 +878,10 @@ iframe {
 /*RESPONSIVE*/
 @media screen and (max-width:768px){
     
+    .contenido {
+        margin: 20px;
+    }
+
     /*Responsive nav*/
     header label {
         display: block;
@@ -936,6 +941,16 @@ iframe {
         width: 90%;
     }
 
+    /*Responsive Buscar Medicos*/
+    .resultados {
+        font-size: 35%;
+        font-weight: bold;
+    }
+
+    .contenidoModal {
+        width: 90%;
+    }
+
     /*Responsive Sobre Nosotros*/
     .articulos {
         width: 100%;
@@ -979,6 +994,10 @@ iframe {
 
 /*Responsive Ipad Mini 768px*/
 @media screen and (width:768px){
+    .contenido {
+        margin: 30px;
+    }
+    
     .formulario {
         width: 25em;
     }
@@ -996,5 +1015,11 @@ iframe {
     }
     .informacionMedicos {
         width: 50%;
+    }
+    .contenidoModal {
+        width: 30em;
+    }
+    .resultados{
+        font-size: 100%;
     }
 }
