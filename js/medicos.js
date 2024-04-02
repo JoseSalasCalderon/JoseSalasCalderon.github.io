@@ -176,6 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const medicosOrdenadosNombre = ordenarMedicos(medicos, "nombre");
     cargarMedicos(medicosOrdenadosNombre);
     actualizarPaginacion(medicosOrdenadosNombre, medicosOrdenadosNombre.length);
+    actualizarAutocompletar(medicosOrdenadosNombre, "nombre");
 
     //Cada vez que se escriba algo en el espacio de búsqueda se llama a este método
     const busquedaInput = document.getElementById("busqueda");
@@ -188,6 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
             paginaActual = 1;
             cargarMedicos(medicosOrdenados);
             actualizarPaginacion(medicosOrdenados, medicosOrdenados.length);
+            actualizarAutocompletar(medicosOrdenados, flitroSeleccionado);
         }else {
             const filtros = document.getElementById("filtro");
             const flitroSeleccionado = filtros.value;
@@ -205,6 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 paginaActual = 1;
                 cargarMedicos(medicosOrdenados);
                 actualizarPaginacion(medicosOrdenados, medicosOrdenados.length);
+                actualizarAutocompletar(medicosOrdenados, flitroSeleccionado);
             };
         };
     });
@@ -221,6 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
             paginaActual = 1;
             cargarMedicos(medicosOrdenados);
             actualizarPaginacion(medicosOrdenados, medicosOrdenados.length);
+            actualizarAutocompletar(medicosOrdenados, flitroSeleccionado);
         } else {
             //Buscar médicos por filtro
             let medicosFiltrados = [];
@@ -235,7 +239,8 @@ document.addEventListener("DOMContentLoaded", () => {
             paginaActual = 1;
             cargarMedicos(medicosOrdenados);
             actualizarPaginacion(medicosOrdenados, medicosOrdenados.length);
-        }
+            actualizarAutocompletar(medicosOrdenados, flitroSeleccionado);
+        };
     });
 
 });
@@ -244,10 +249,6 @@ const cargarMedicos = (medicos) => {
     const cuerpoTabla = document.getElementById("cuerpoTabla");
     cuerpoTabla.innerHTML = "";
     
-    const opcionesAutocompletar = document.getElementById("autocompletar");
-    opcionesAutocompletar.innerHTML = "";
-    const nombresSinRepetir = new Set();
-
     //Definir parametros paginacion
     //Inicio marca la posicion de medico que se debe tomar por página, en la uno se empieza en el 0, en la segunda en el 4..
     //Fin marca la limitación de la paginación en la cadena.
@@ -271,22 +272,7 @@ const cargarMedicos = (medicos) => {
         </tr>`;
 
         cuerpoTabla.innerHTML += filaMedico;
-
-        nombresSinRepetir.add(medicos[index].nombre);  
     };
-
-    //Se crea un arreglo que provenga del Set (necesario para usar ciclos)
-    const arrregloNombres = Array.from(nombresSinRepetir);
-    arrregloNombres.forEach(nombre => {
-        //Crea un autocompletar dinámico
-        const opcionAutocompletar = `
-        <option value="${nombre}">
-            ${nombre}
-        </option>
-        `;
-
-        opcionesAutocompletar.innerHTML += opcionAutocompletar;
-    });
 };
 
 const actualizarPaginacion = (medicos, totalMedicos) => {
@@ -305,6 +291,33 @@ const actualizarPaginacion = (medicos, totalMedicos) => {
         });
         paginacion.appendChild(botonPagina);
     }
+};
+
+const actualizarAutocompletar = (medicos, criterioFiltro) => {
+    const opcionesAutocompletar = document.getElementById("autocompletar");
+    opcionesAutocompletar.innerHTML = "";
+    const criterioSinRepetir = new Set();
+
+    const inicio = (paginaActual - 1) * medicosPorPagina;
+    const fin = paginaActual * medicosPorPagina;
+
+    for (let index = inicio; index < fin && index < medicos.length; index++) {
+        const medico = medicos[index];
+        criterioSinRepetir.add(medico[criterioFiltro]);   
+    };
+
+    //Se crea un arreglo que provenga del Set (necesario para usar ciclos)
+    const arrregloCriterios = Array.from(criterioSinRepetir);
+    arrregloCriterios.forEach(criterio => {
+        //Crea un autocompletar dinámico
+        const opcionAutocompletar = `
+        <option value="${criterio}">
+            ${criterio}
+        </option>
+        `;
+
+        opcionesAutocompletar.innerHTML += opcionAutocompletar;
+    });
 };
 
 const ordenarMedicos = (medicos, criterioFiltro) => {
