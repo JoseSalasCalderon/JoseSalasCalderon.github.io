@@ -244,6 +244,10 @@ const cargarMedicos = (medicos) => {
     const cuerpoTabla = document.getElementById("cuerpoTabla");
     cuerpoTabla.innerHTML = "";
     
+    const opcionesAutocompletar = document.getElementById("autocompletar");
+    opcionesAutocompletar.innerHTML = "";
+    const nombresSinRepetir = new Set();
+
     //Definir parametros paginacion
     //Inicio marca la posicion de medico que se debe tomar por página, en la uno se empieza en el 0, en la segunda en el 4..
     //Fin marca la limitación de la paginación en la cadena.
@@ -267,9 +271,23 @@ const cargarMedicos = (medicos) => {
         </tr>`;
 
         cuerpoTabla.innerHTML += filaMedico;
-    };
-};
 
+        nombresSinRepetir.add(medicos[index].nombre);  
+    };
+
+    //Se crea un arreglo que provenga del Set (necesario para usar ciclos)
+    const arrregloNombres = Array.from(nombresSinRepetir);
+    arrregloNombres.forEach(nombre => {
+        //Crea un autocompletar dinámico
+        const opcionAutocompletar = `
+        <option value="${nombre}">
+            ${nombre}
+        </option>
+        `;
+
+        opcionesAutocompletar.innerHTML += opcionAutocompletar;
+    });
+};
 
 const actualizarPaginacion = (medicos, totalMedicos) => {
     //Cantida de páginas redondeado hacia arriba
