@@ -626,7 +626,7 @@ iframe {
     padding: 1em;
 }
 
-#informacionMedico h3{
+#informacionMedico h3 {
     font-size: 1.3em;
     color: #F2F7FC;
     background-color: #5893D4;
@@ -636,7 +636,7 @@ iframe {
     padding: 0.2em;
 }
 
-#informacionMedico p{
+#informacionMedico p {
     font-weight: bold;
     font-size: 1.1em;
     margin-bottom: 3%;
@@ -647,6 +647,24 @@ iframe {
     border-left: 2px solid #163454;
     border-right: 2px solid #163454;
     padding-left: 1em;
+}
+
+#informacionMedico ul {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 3%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #163454;
+    border-left: 2px solid #163454;
+    border-right: 2px solid #163454;
+    padding-left: 1em;
+}
+
+#informacionMedico li {
+    margin-left: 1em;
 }
 
 .cerrarModal:hover {

@@ -9,8 +9,8 @@ const medicos = [
         contacto: "+1234567890",
         email: "dr.anagomez@arboldeseda.com",
         reseñas: [
-            { usuario: "Usuario1", comentario: "Excelente atención, muy amable y profesional.", calificacion: 5 },
-            { usuario: "Usuario2", comentario: "Gran médico, lo recomendaría a cualquiera.", calificacion: 4 }
+            "Excelente atención, muy amable y profesional.",
+            "Gran médico, lo recomendaría a cualquiera."
         ],
         biografia: "Ana ha estado practicando medicina familiar durante más de 10 años. Se graduó de la Universidad Nacional con honores y tiene una pasión por brindar atención médica compasiva y personalizada a sus pacientes."
     },
@@ -24,8 +24,8 @@ const medicos = [
         contacto: "+1234567890",
         email: "dr.javiermartinez@arboldeseda.com",
         reseñas: [
-            { usuario: "Usuario3", comentario: "Muy buen pediatra, siempre atento y paciente con los niños.", calificacion: 5 },
-            { usuario: "Usuario4", comentario: "Excelente trato, mis hijos se sienten cómodos con él.", calificacion: 4.5 }
+            "Muy buen pediatra, siempre atento y paciente con los niños.",
+            "Excelente trato, mis hijos se sienten cómodos con él."
         ],
         biografia: "Javier es un pediatra experimentado con una dedicación especial a la atención infantil. Se graduó con honores de la Escuela de Medicina de su país y ha estado practicando pediatría durante más de 15 años."
     },
@@ -39,8 +39,8 @@ const medicos = [
         contacto: "+1234567890",
         email: "dra.mariarodriguez@arboldeseda.com",
         reseñas: [
-            { usuario: "Usuario5", comentario: "Muy profesional y amable, me hizo sentir cómoda durante la consulta.", calificacion: 4.5 },
-            { usuario: "Usuario6", comentario: "La mejor ginecóloga que he tenido, definitivamente regresaré.", calificacion: 5 }
+            "Muy profesional y amable, me hizo sentir cómoda durante la consulta.",
+            "La mejor ginecóloga que he tenido, definitivamente regresaré."
         ],
         biografia: "María es una ginecóloga y obstetra altamente calificada que se especializa en el cuidado de la salud de las mujeres. Con una vasta experiencia en su campo, la Dra. Rodríguez se esfuerza por proporcionar un cuidado compasivo y de alta calidad a todas sus pacientes."
     },
@@ -54,8 +54,8 @@ const medicos = [
         contacto: "+1234567890",
         email: "dr.carlosfernandez@arboldeseda.com",
         reseñas: [
-            { usuario: "Usuario7", comentario: "Muy bien informado y profesional. Me explicó claramente mi condición.", calificacion: 4 },
-            { usuario: "Usuario8", comentario: "Excelente atención, lo recomendaría a cualquier persona con problemas cardíacos.", calificacion: 5 }
+            "Muy bien informado y profesional. Me explicó claramente mi condición.",
+            "Excelente atención, lo recomendaría a cualquier persona con problemas cardíacos."
         ],
         biografia: "Carlos es un cardiólogo altamente experimentado y capacitado que se especializa en el diagnóstico y tratamiento de enfermedades del corazón. Con una sólida formación médica y años de experiencia práctica, el Dr. Fernández se compromete a brindar una atención integral y personalizada a sus pacientes."
     },
@@ -69,8 +69,8 @@ const medicos = [
         contacto: "+1234567890",
         email: "dr.carlosfernandez@arboldeseda.com",
         reseñas: [
-            { usuario: "Usuario7", comentario: "Muy bien informado y profesional. Me explicó claramente mi condición.", calificacion: 4 },
-            { usuario: "Usuario8", comentario: "Excelente atención, lo recomendaría a cualquier persona con problemas cardíacos.", calificacion: 5 }
+            "Muy bien informado y profesional. Me explicó claramente mi condición.",
+            "Excelente atención, lo recomendaría a cualquier persona con problemas cardíacos."
         ],
         biografia: "Stevan es un cardiólogo altamente experimentado y capacitado que se especializa en el diagnóstico y tratamiento de enfermedades del corazón. Con una sólida formación médica y años de experiencia práctica, el Dr. Fernández se compromete a brindar una atención integral y personalizada a sus pacientes."
     },
@@ -84,8 +84,8 @@ const medicos = [
         contacto: "+1234567890",
         email: "dr.carlosfernandez@arboldeseda.com",
         reseñas: [
-            { usuario: "Usuario7", comentario: "Muy bien informado y profesional. Me explicó claramente mi condición.", calificacion: 4 },
-            { usuario: "Usuario8", comentario: "Excelente atención, lo recomendaría a cualquier persona con problemas cardíacos.", calificacion: 5 }
+            "Muy bien informado y profesional. Me explicó claramente mi condición.",
+            "Excelente atención, lo recomendaría a cualquier persona con problemas cardíacos."
         ],
         biografia: "Sofía es un cardiólogo altamente experimentado y capacitado que se especializa en el diagnóstico y tratamiento de enfermedades del corazón. Con una sólida formación médica y años de experiencia práctica, el Dr. Fernández se compromete a brindar una atención integral y personalizada a sus pacientes."
     },
@@ -99,8 +99,8 @@ const medicos = [
         contacto: "+1234567890",
         email: "dr.gabrielgonzalez@arboldeseda.com",
         reseñas: [
-            { usuario: "Usuario9", comentario: "Gran dermatólogo, muy eficiente en su trabajo.", calificacion: 4.5 },
-            { usuario: "Usuario10", comentario: "Me ayudó mucho con mi problema de piel, lo recomiendo totalmente.", calificacion: 5 }
+            "Gran dermatólogo, muy eficiente en su trabajo.",
+            "Me ayudó mucho con mi problema de piel, lo recomiendo totalmente."
         ],
         biografia: "Gabriel es un dermatólogo con experiencia en el tratamiento de una amplia gama de enfermedades de la piel. Se especializa en ofrecer soluciones efectivas y personalizadas para las necesidades dermatológicas de sus pacientes."
     },
@@ -114,8 +114,8 @@ const medicos = [
         contacto: "+1234567890",
         email: "dra.carolinalopez@arboldeseda.com",
         reseñas: [
-            { usuario: "Usuario11", comentario: "Excelente endocrinóloga, muy conocedora de su campo.", calificacion: 5 },
-            { usuario: "Usuario12", comentario: "Me ayudó a controlar mi problema hormonal, estoy muy agradecida.", calificacion: 4.5 }
+            "Excelente endocrinóloga, muy conocedora de su campo.",
+            "Me ayudó a controlar mi problema hormonal, estoy muy agradecida."
         ],
         biografia: "Carolina es una endocrinóloga comprometida con proporcionar un cuidado integral y especializado a sus pacientes. Con una sólida formación en endocrinología, se esfuerza por ofrecer tratamientos efectivos y personalizados para una variedad de condiciones hormonales."
     },
@@ -129,8 +129,8 @@ const medicos = [
         contacto: "+1234567890",
         email: "dr.pedromartinez@arboldeseda.com",
         reseñas: [
-            { usuario: "Usuario13", comentario: "Gran neurocirujano, muy profesional y compasivo.", calificacion: 5 },
-            { usuario: "Usuario14", comentario: "Me ayudó a entender mi condición neurológica y me brindó un excelente tratamiento.", calificacion: 4 }
+            "Gran neurocirujano, muy profesional y compasivo.",
+            "Me ayudó a entender mi condición neurológica y me brindó un excelente tratamiento."
         ],
         biografia: "Pedro es un neurocirujano altamente capacitado y experimentado en el diagnóstico y tratamiento de trastornos neurológicos. Su enfoque compasivo y su dedicación a sus pacientes lo convierten en una opción ideal para aquellos que buscan atención neurológica de calidad."
     },
@@ -144,8 +144,8 @@ const medicos = [
         contacto: "+1234567890",
         email: "dra.mariasanchez@arboldeseda.com",
         reseñas: [
-            { usuario: "Usuario15", comentario: "Excelente oftalmóloga, me ayudó mucho con mi problema de visión.", calificacion: 4.5 },
-            { usuario: "Usuario16", comentario: "Muy profesional y amable, la recomiendo totalmente.", calificacion: 5 }
+            "Excelente oftalmóloga, me ayudó mucho con mi problema de visión.",
+            "Muy profesional y amable, la recomiendo totalmente."
         ],
         biografia: "María es una oftalmóloga con experiencia en el diagnóstico y tratamiento de una variedad de problemas oculares. Con un enfoque en la atención compasiva y personalizada, se esfuerza por brindar soluciones efectivas para mejorar la salud ocular de sus pacientes."
     },
@@ -159,12 +159,13 @@ const medicos = [
         contacto: "+1234567890",
         email: "dr.davidgonzalez@arboldeseda.com",
         reseñas: [
-            { usuario: "Usuario17", comentario: "Gran ortopedista, me ayudó a recuperarme rápidamente de mi lesión.", calificacion: 5 },
-            { usuario: "Usuario18", comentario: "Muy profesional y atento, lo recomendaría sin dudarlo.", calificacion: 4.5 }
+            "Gran ortopedista, me ayudó a recuperarme rápidamente de mi lesión.",
+            "Muy profesional y atento, lo recomendaría sin dudarlo."
         ],
         biografia: "David es un ortopedista con experiencia en el tratamiento de una amplia gama de lesiones y trastornos musculoesqueléticos. Su enfoque centrado en el paciente y su habilidad para proporcionar soluciones efectivas hacen de él una opción confiable para aquellos que buscan atención ortopédica de calidad."
     }
 ];
+
 
 const medicosPorPagina = 4;
 let paginaActual = 1;
@@ -242,27 +243,33 @@ document.addEventListener("DOMContentLoaded", () => {
 const cargarMedicos = (medicos) => {
     const cuerpoTabla = document.getElementById("cuerpoTabla");
     cuerpoTabla.innerHTML = "";
+    
     //Definir parametros paginacion
     //Inicio marca la posicion de medico que se debe tomar por página, en la uno se empieza en el 0, en la segunda en el 4..
     //Fin marca la limitación de la paginación en la cadena.
     const inicio = (paginaActual - 1) * medicosPorPagina;
     const fin = paginaActual * medicosPorPagina;
+    
     //Validar que no se exceda de los valores de los médicos.
     for (let index = inicio; index < fin && index < medicos.length; index++) {
+        //Es necesario indicar que vayan comillas simples para que no se altere la estructura html recibida
+        //Se utiliza map para crar un arreglo
+        const reseñasArray = medicos[index].reseñas.map(reseña => `'${reseña}'`);
+        
+        //Crear el botón con las reseñas formateadas como un arreglo
         const filaMedico = `
         <tr>
             <td>${medicos[index].nombre}</td>
             <td>${medicos[index].especialidad}</td>
             <td>${medicos[index].ubicacion}</td>
             <td>${medicos[index].id}</td>
-            <td>
-                <button onclick="mostrarInformacionMedico('${medicos[index].id}', '${medicos[index].nombre}', '${medicos[index].apellido}', '${medicos[index].especialidad}', '${medicos[index].ubicacion}', '${medicos[index].disponibilidad}', '${medicos[index].contacto}', '${medicos[index].email}', '${medicos[index].reseñas}', '${medicos[index].biografia}')">Ver</button>
-            </td>
+            <td><button onclick="mostrarInformacionMedico('${medicos[index].id}', '${medicos[index].nombre}', '${medicos[index].apellido}', '${medicos[index].especialidad}', '${medicos[index].ubicacion}', '${medicos[index].disponibilidad}', '${medicos[index].contacto}', '${medicos[index].email}', [${reseñasArray}], '${medicos[index].biografia}')">Ver</button></td>
         </tr>`;
 
         cuerpoTabla.innerHTML += filaMedico;
     };
 };
+
 
 const actualizarPaginacion = (medicos, totalMedicos) => {
     //Cantida de páginas redondeado hacia arriba
@@ -297,7 +304,14 @@ const ordenarMedicos = (medicos, criterioFiltro) => {
 
 const mostrarInformacionMedico = (id, nombre, apellido, especialidad, ubicacion, disponibilidad, contacto, email, reseñas, biografia) => {
     const informacionMedico = document.getElementById("informacionMedico");
-    const filaDesplegadaMedico = `
+    //Se leen las reseñas
+    let reseñasArregladas = "<ul>";
+    reseñas.forEach(reseña => {
+        reseñasArregladas += `<li>${reseña}</li>`;
+    });
+    reseñasArregladas += "</ul>";
+    //Se crea toda la inforamcion del medico
+    const datosCompletosMedico = `
         <h3>Identificación:</h3>
         <p>${id}</p>
         <h3>Nombre:</h3>
@@ -317,8 +331,11 @@ const mostrarInformacionMedico = (id, nombre, apellido, especialidad, ubicacion,
         <h3>Biografía:</h3>
         <p>${biografia}</p>
         <h3>Reseñas:</h3>
+        ${reseñasArregladas}
     `;
-    informacionMedico.innerHTML = filaDesplegadaMedico;
+
+    //Se agrega el html
+    informacionMedico.innerHTML = datosCompletosMedico;
     abrirModalMedicos();
 };
 
