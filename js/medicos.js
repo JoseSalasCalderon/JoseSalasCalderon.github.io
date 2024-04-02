@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //Cargar tabla primera vez (ordenar)
     const medicosOrdenadosNombre = ordenarMedicos(medicos, "nombre");
     cargarMedicos(medicosOrdenadosNombre);
-    actualizarPaginacion(medicosOrdenadosNombre, medicosOrdenadosNombre.length);
+    actualizarPaginacion(medicosOrdenadosNombre, medicosOrdenadosNombre.length, "nombre");
     actualizarAutocompletar(medicosOrdenadosNombre, "nombre");
 
     //Cada vez que se escriba algo en el espacio de búsqueda se llama a este método
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const medicosOrdenados = ordenarMedicos(medicos, flitroSeleccionado);
             paginaActual = 1;
             cargarMedicos(medicosOrdenados);
-            actualizarPaginacion(medicosOrdenados, medicosOrdenados.length);
+            actualizarPaginacion(medicosOrdenados, medicosOrdenados.length, flitroSeleccionado);
             actualizarAutocompletar(medicosOrdenados, flitroSeleccionado);
         }else {
             const filtros = document.getElementById("filtro");
@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (medicosOrdenados.length>0) {
                 paginaActual = 1;
                 cargarMedicos(medicosOrdenados);
-                actualizarPaginacion(medicosOrdenados, medicosOrdenados.length);
+                actualizarPaginacion(medicosOrdenados, medicosOrdenados.length, flitroSeleccionado);
                 actualizarAutocompletar(medicosOrdenados, flitroSeleccionado);
             };
         };
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const medicosOrdenados = ordenarMedicos(medicos, flitroSeleccionado);
             paginaActual = 1;
             cargarMedicos(medicosOrdenados);
-            actualizarPaginacion(medicosOrdenados, medicosOrdenados.length);
+            actualizarPaginacion(medicosOrdenados, medicosOrdenados.length, flitroSeleccionado);
             actualizarAutocompletar(medicosOrdenados, flitroSeleccionado);
         } else {
             //Buscar médicos por filtro
@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const medicosOrdenados = ordenarMedicos(medicosFiltrados, flitroSeleccionado);
             paginaActual = 1;
             cargarMedicos(medicosOrdenados);
-            actualizarPaginacion(medicosOrdenados, medicosOrdenados.length);
+            actualizarPaginacion(medicosOrdenados, medicosOrdenados.length, flitroSeleccionado);
             actualizarAutocompletar(medicosOrdenados, flitroSeleccionado);
         };
     });
@@ -274,9 +274,9 @@ const cargarMedicos = (medicos) => {
         cuerpoTabla.innerHTML += filaMedico;
     };
 };
-
-const actualizarPaginacion = (medicos, totalMedicos) => {
-    //Cantida de páginas redondeado hacia arriba
+//Es necesario que se haga una actualización de la paginación con el filtro
+const actualizarPaginacion = (medicos, totalMedicos, flitroSeleccionado) => {
+    //Cantidad de páginas redondeado hacia arriba
     const totalPaginas = Math.ceil(totalMedicos / medicosPorPagina);
     const paginacion = document.getElementById("paginacion");
     paginacion.innerHTML = "";
@@ -287,7 +287,8 @@ const actualizarPaginacion = (medicos, totalMedicos) => {
         botonPagina.addEventListener("click", () => {
             paginaActual = i;
             cargarMedicos(medicos);
-            actualizarPaginacion(medicos, totalMedicos);
+            actualizarPaginacion(medicos, totalMedicos, flitroSeleccionado);
+            actualizarAutocompletar(medicos, flitroSeleccionado);
         });
         paginacion.appendChild(botonPagina);
     }
