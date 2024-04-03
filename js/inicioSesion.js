@@ -71,6 +71,8 @@ const manejarExitoInicioSesion = (usuario) => {
                 sessionStorage.setItem('usuarioSesion', JSON.stringify(usuariosEncontrados[0]));
                 alert("Iniciar sesión exitoso");
                 limpiarCamposTexto();
+                //Recarga la página para activar la agenda de citas
+                location.reload();
             }else {
                 alert("Contraseña Incorrecta");
             };
@@ -90,12 +92,11 @@ const manejarExitoRegistro = (usuario) => {
         localStorage.setItem('usuariosRegistrados', JSON.stringify(usuarios));
         console.log("primera vez: "+usuarios.length);
         console.log("No existo");
+        alert("Registro Exitoso");
     }else{
         var cedulaRepetida = 0;
         usuariosRegistrados.forEach(usuariosRegistrado => {
             if (usuariosRegistrado.cedula === usuario.cedula) {
-                console.log("c1"+usuariosRegistrado.cedula);
-                console.log("c2"+usuario.cedula);
                 cedulaRepetida = 1;
             };
         });
