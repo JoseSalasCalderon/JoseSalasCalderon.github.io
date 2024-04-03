@@ -1,3 +1,4 @@
+var contrasennasIguales = 0;
 document.addEventListener("DOMContentLoaded", () => {
     
     validarIgualdadContrasennas();
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }else if (tipoFormulario === "Registrar") {
             const usuario = obtenerDatosFormularioRegistro();
             const esValido = validarCedula(usuario.cedula) && validarNombre(usuario.nombreCompleto) && validarApellidos(usuario.apellido) && validarTelefono(usuario.telefono) &&
-            validarCorreo(usuario.correo) && validarContrasenna(usuario.contrasenna);
+            validarCorreo(usuario.correo) && validarContrasenna(usuario.contrasenna) && contrasennasIguales === 1;
             esValido ? manejarExitoRegistro(usuario) : manejarError();
         };
         
@@ -125,7 +126,7 @@ const limpiarCamposTexto = () => {
 const validarIgualdadContrasennas = () => {
     const contrasenna = document.getElementById("contrasenna");
     const confirmacionContrasenna = document.getElementById("confirmarContrasenna");
-    const avisoCoincidencia = document.getElementById("noConicidenciaCOntrasennas");
+    const avisoCoincidencia = document.getElementById("noConicidenciaContrasennas");
 
     if (confirmacionContrasenna != null) {
         contrasenna.addEventListener("input", () => {
@@ -133,9 +134,11 @@ const validarIgualdadContrasennas = () => {
             const confirmacioncontrasennaIngresada = confirmacionContrasenna.value.trim();
             if (contrasennaIngresada === confirmacioncontrasennaIngresada) {
                 avisoCoincidencia.style.display = "none";
+                contrasennasIguales = 1;
             }else{
                 //Aparece el p de que no coinciden
                 avisoCoincidencia.style.display = "block"; 
+                contrasennasIguales = 0;
             };
         });
     
@@ -144,9 +147,11 @@ const validarIgualdadContrasennas = () => {
             const confirmacioncontrasennaIngresada = confirmacionContrasenna.value.trim();
             if (confirmacioncontrasennaIngresada === contrasennaIngresada) {
                 avisoCoincidencia.style.display = "none";
+                contrasennasIguales = 1;
             }else{
                 //Aparece el p de que no coinciden
                 avisoCoincidencia.style.display = "block"; 
+                contrasennasIguales = 0;
             };
         });
     };
