@@ -237,7 +237,7 @@ footer a:hover {
 }
 
 
-/* INICIO DE SESIÓN*/
+/*INICIO DE SESIÓN / REGISTRAR*/
 
 .formulario {
     width: 25em;
@@ -288,14 +288,21 @@ footer a:hover {
     flex-direction: column;
 }
 
+/*Inicio Sesion*/
 #recuperarContrasenna{
     margin-left: auto;
 }
 
+/*Registrar*/
 #volver {
     float: right;
     margin-right: 1%;
     margin-top: 2%;
+}
+
+#noConicidenciaCOntrasennas {
+    color: red;
+    display: none;
 }
 
 

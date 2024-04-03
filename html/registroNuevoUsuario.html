@@ -30,7 +30,7 @@
     <main>
         <div class="contenido">
             <div class="formulario">
-                <h2>Iniciar Sesión</h2>
+                <h2>Registrar</h2>
                 <form id="formulario" method="post">
                     <div class="usuarios">
                         <label>Número de Cédula:</label>
@@ -56,7 +56,11 @@
                         <label>Contraseña:</label>
                         <input id="contrasenna" type="password" required>
                     </div>
-
+                    <div class="usuarios">
+                        <label>Confirme su Contraseña:</label>
+                        <p id="noConicidenciaCOntrasennas">No coinciden las contraseñas</p>
+                        <input id="confirmarContrasenna" type="password" required>
+                    </div>
                     <input class="enviarFormulario" id="botonRegistrarme" type="submit" value="Registrar">
                     <a id="volver" href="inicioSesion.html"><-Volver</a>
                 </form>

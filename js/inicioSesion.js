@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+    
+    validarIgualdadContrasennas();
+
     const formulario = document.getElementById("formulario");
     formulario.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -61,4 +64,34 @@ const manejarError = () => {
 const limpiarCamposTexto = () => {
     const campos = document.querySelectorAll("#formulario input[type='email'], #formulario input[type='password'], #formulario input[type='text']");
     campos.forEach((campo) => campo.value = "");
+};
+
+const validarIgualdadContrasennas = () => {
+    const contrasenna = document.getElementById("contrasenna");
+    const confirmacionContrasenna = document.getElementById("confirmarContrasenna");
+    const avisoCoincidencia = document.getElementById("noConicidenciaCOntrasennas");
+
+    if (confirmacionContrasenna != null) {
+        contrasenna.addEventListener("input", () => {
+            const contrasennaIngresada = contrasenna.value.trim();
+            const confirmacioncontrasennaIngresada = confirmacionContrasenna.value.trim();
+            if (contrasennaIngresada === confirmacioncontrasennaIngresada) {
+                avisoCoincidencia.style.display = "none";
+            }else{
+                //Aparece el p de que no coinciden
+                avisoCoincidencia.style.display = "block"; 
+            };
+        });
+    
+        confirmacionContrasenna.addEventListener("input", () => {
+            const contrasennaIngresada = contrasenna.value.trim();
+            const confirmacioncontrasennaIngresada = confirmacionContrasenna.value.trim();
+            if (confirmacioncontrasennaIngresada === contrasennaIngresada) {
+                avisoCoincidencia.style.display = "none";
+            }else{
+                //Aparece el p de que no coinciden
+                avisoCoincidencia.style.display = "block"; 
+            };
+        });
+    };
 };
