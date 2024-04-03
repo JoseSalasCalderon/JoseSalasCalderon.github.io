@@ -71,8 +71,8 @@ const manejarExitoInicioSesion = (usuario) => {
                 sessionStorage.setItem('usuarioSesion', JSON.stringify(usuariosEncontrados[0]));
                 alert("Iniciar sesión exitoso");
                 limpiarCamposTexto();
-                //Recarga la página para activar la agenda de citas
-                location.reload();
+                //Redirigmos a la página principal
+                window.location.href = '../../index.html';
             }else {
                 alert("Contraseña Incorrecta");
             };

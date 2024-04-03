@@ -86,15 +86,34 @@ header label:hover {
 
 .menu ul li a {
     display: block;
-    padding: 15px 20px;
+    padding: 15px 10px;
     color: #F2F7FC;
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9em;
 }
 
-#ocupoSesion{
+/*Agendar citas deshabilitado*/
+#agendaCitasVista{
     display: none;
+}
+
+/*Botón Cerrar Sesión*/
+.menu ul li button {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: #5893D4;
+    background: rgba(255, 0, 0, 0.3);
+    color: #F2F7FC;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    padding: 0 10px;
+}
+
+.menu ul li button:hover {
+    background: rgba(0, 0, 0, 0.3);
 }
 
 /*Footer*/
@@ -916,6 +935,10 @@ iframe {
 
     #btn-menu:checked ~ .menu {
         margin: 0;
+    }
+
+    .menu ul li button {
+        padding: 15px 10px;
     }
 
     /*Responsive Index*/
