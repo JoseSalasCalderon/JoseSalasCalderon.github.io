@@ -10,15 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const tipoFormulario = elementos[0].value.trim();        
 
         if (tipoFormulario === "Ingresar") {
-            const { cedula, contrasenna } = obtenerDatosFormularioInicioSesion();
-            const esValido = validarContrasenna(contrasenna) && validarCedula(cedula);
-            esValido ? manejarExito() : manejarError();
+            const usuario = obtenerDatosFormularioInicioSesion();
+            const esValido = validarContrasenna(usuario.contrasenna) && validarCedula(usuario.cedula);
+            esValido ? manejarExitoInicioSesion(usuario) : manejarError();
         }else if (tipoFormulario === "Registrar") {
-            const { cedula, nombreCompleto, apellido, telefono, correo, contrasenna  } = obtenerDatosFormularioRegistro();
-            const esValido = validarCedula(cedula) && validarNombre(nombreCompleto) && validarApellidos(apellido) && validarTelefono(telefono) &&
-            validarCorreo(correo) && validarContrasenna(contrasenna);
-            esValido ? manejarExito() : manejarError();
-        }
+            const usuario = obtenerDatosFormularioRegistro();
+            const esValido = validarCedula(usuario.cedula) && validarNombre(usuario.nombreCompleto) && validarApellidos(usuario.apellido) && validarTelefono(usuario.telefono) &&
+            validarCorreo(usuario.correo) && validarContrasenna(usuario.contrasenna);
+            esValido ? manejarExitoRegistro(usuario) : manejarError();
+        };
         
     });
 });
@@ -52,9 +52,64 @@ const validarTelefono = (telefono) => /^\d{4}-\d{4}$/.test(telefono);
 
 const validarCorreo = (correo) => /^[^\s@]{2,}@[^.\s@]{4,}\.[^\s@]{3}$/.test(correo);
 
-const manejarExito = () => {
-    alert("Iniciar sesión exitoso");
-    limpiarCamposTexto();
+const manejarExitoInicioSesion = (usuario) => {
+    //Obtener los usuarios registrados
+    var usuariosRegistrados = JSON.parse(localStorage.getItem('usuariosRegistrados'));
+    if (usuariosRegistrados === null) {
+        alert("El usuario no existe");
+    }else{
+        var usuariosEncontrados = [];
+        usuariosRegistrados.forEach(usuariosRegistrado => {
+            if (usuario.cedula === usuariosRegistrado.cedula) {
+                usuariosEncontrados.push(usuariosRegistrado);
+            };
+        });
+        //Valida la si encontró al ususario registrado
+        if (usuariosEncontrados.length === 1) {
+            if (usuario.contrasenna === usuariosEncontrados[0].contrasenna) {
+                //localStorage.removeItem('usuariosRegistrados');
+                sessionStorage.setItem('usuarioSesion', JSON.stringify(usuariosEncontrados[0]));
+                alert("Iniciar sesión exitoso");
+                limpiarCamposTexto();
+            }else {
+                alert("Contraseña Incorrecta");
+            };
+        }else{
+            alert("El usuario no está registrado");
+        };
+    };
+};
+
+const manejarExitoRegistro = (usuario) => {
+    //Obtener los usuarios registrados
+    var usuariosRegistrados = JSON.parse(localStorage.getItem('usuariosRegistrados'));
+    //Si no existe se crea el localStorage
+    if (usuariosRegistrados === null) {
+        var usuarios = [];
+        usuarios.push(usuario);
+        localStorage.setItem('usuariosRegistrados', JSON.stringify(usuarios));
+        console.log("primera vez: "+usuarios.length);
+        console.log("No existo");
+    }else{
+        var cedulaRepetida = 0;
+        usuariosRegistrados.forEach(usuariosRegistrado => {
+            if (usuariosRegistrado.cedula === usuario.cedula) {
+                console.log("c1"+usuariosRegistrado.cedula);
+                console.log("c2"+usuario.cedula);
+                cedulaRepetida = 1;
+            };
+        });
+        //Validamos que si la cédula no existe, se guarde
+        if (cedulaRepetida === 0) {
+            usuariosRegistrados.push(usuario);
+            localStorage.setItem('usuariosRegistrados', JSON.stringify(usuariosRegistrados));
+            console.log("Siguientes: "+usuariosRegistrados.length);
+            alert("Registro Exitoso");
+            limpiarCamposTexto();
+        }else{
+            alert("Cédula ya registrada");
+        };
+    };
 };
 
 const manejarError = () => {
