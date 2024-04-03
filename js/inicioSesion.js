@@ -67,16 +67,24 @@ const manejarExitoInicioSesion = (usuario) => {
         });
         //Valida la si encontró al ususario registrado
         if (usuariosEncontrados.length === 1) {
-            if (usuario.contrasenna === usuariosEncontrados[0].contrasenna) {
-                //localStorage.removeItem('usuariosRegistrados');
-                sessionStorage.setItem('usuarioSesion', JSON.stringify(usuariosEncontrados[0]));
-                alert("Iniciar sesión exitoso");
-                limpiarCamposTexto();
-                //Redirigmos a la página principal
-                window.location.href = '../../index.html';
-            }else {
-                alert("Contraseña Incorrecta");
-            };
+            //Encriptar la contrasenna recibida y compararla con la registrada
+            const hashPromesa = encriptarContrasenna(usuario.contrasenna);
+            let contrasennaEncriptada = "";
+            hashPromesa.then(hash => {
+                contrasennaEncriptada=hash;
+                if (contrasennaEncriptada === usuariosEncontrados[0].contrasenna) {
+                    //localStorage.removeItem('usuariosRegistrados');
+                    sessionStorage.setItem('usuarioSesion', JSON.stringify(usuariosEncontrados[0]));
+                    alert("Iniciar sesión exitoso");
+                    limpiarCamposTexto();
+                    //Redirigmos a la página principal
+                    window.location.href = '../../index.html';
+                }else {
+                    alert("Contraseña Incorrecta");
+                };
+            }).catch(error => {
+                console.error("Error al calcular el hash de la contraseña:", error);
+            });
         }else{
             alert("El usuario no está registrado");
         };
@@ -86,32 +94,38 @@ const manejarExitoInicioSesion = (usuario) => {
 const manejarExitoRegistro = (usuario) => {
     //Obtener los usuarios registrados
     var usuariosRegistrados = JSON.parse(localStorage.getItem('usuariosRegistrados'));
-    //Si no existe se crea el localStorage
-    if (usuariosRegistrados === null) {
-        var usuarios = [];
-        usuarios.push(usuario);
-        localStorage.setItem('usuariosRegistrados', JSON.stringify(usuarios));
-        console.log("primera vez: "+usuarios.length);
-        console.log("No existo");
-        alert("Registro Exitoso");
-    }else{
-        var cedulaRepetida = 0;
-        usuariosRegistrados.forEach(usuariosRegistrado => {
-            if (usuariosRegistrado.cedula === usuario.cedula) {
-                cedulaRepetida = 1;
-            };
-        });
-        //Validamos que si la cédula no existe, se guarde
-        if (cedulaRepetida === 0) {
-            usuariosRegistrados.push(usuario);
-            localStorage.setItem('usuariosRegistrados', JSON.stringify(usuariosRegistrados));
-            console.log("Siguientes: "+usuariosRegistrados.length);
+    //Hacer la promesa del hash
+    const hashPromesa = encriptarContrasenna(usuario.contrasenna);
+    let contrasennaEncriptada = ""; 
+    hashPromesa.then(hash => {
+        contrasennaEncriptada=hash;
+        usuario.contrasenna = contrasennaEncriptada;
+        //Si no existe se crea el localStorage
+        if (usuariosRegistrados === null) {
+            var usuarios = [];
+            usuarios.push(usuario);
+            localStorage.setItem('usuariosRegistrados', JSON.stringify(usuarios));
             alert("Registro Exitoso");
-            limpiarCamposTexto();
         }else{
-            alert("Cédula ya registrada");
+            var cedulaRepetida = 0;
+            usuariosRegistrados.forEach(usuariosRegistrado => {
+                if (usuariosRegistrado.cedula === usuario.cedula) {
+                    cedulaRepetida = 1;
+                };
+            });
+            //Validamos que si la cédula no existe, se guarde
+            if (cedulaRepetida === 0) {
+                usuariosRegistrados.push(usuario);
+                localStorage.setItem('usuariosRegistrados', JSON.stringify(usuariosRegistrados));
+                alert("Registro Exitoso");
+                limpiarCamposTexto();
+            }else{
+                alert("Cédula ya registrada");
+            };
         };
-    };
+    }).catch(error => {
+        console.error("Error al calcular el hash de la contraseña:", error);
+    }); 
 };
 
 const manejarError = () => {
@@ -155,4 +169,22 @@ const validarIgualdadContrasennas = () => {
             };
         });
     };
+};
+
+//Formato para crear una promesa y encriptar un valor y retornar una Promesa
+const encriptarContrasenna = (contrasenna) => {
+    return new Promise((resolve, reject) => {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(contrasenna);
+        
+        crypto.subtle.digest('SHA-256', data)
+            .then(hashBuffer => {
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+                resolve(hashHex);
+            })
+            .catch(error => {
+                reject(error);
+            });
+    });
 };

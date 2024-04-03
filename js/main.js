@@ -9,7 +9,6 @@ const validarSesion = () =>{
     var usuarioSesion = JSON.parse(sessionStorage.getItem('usuarioSesion'));
     const iniciarSesion = document.getElementById("inicioSesionVista");
     if (usuarioSesion != null) {
-        console.log("Entro");
         const agendarCitas = document.getElementById("agendaCitasVista");
         const botoncerrarSesion = document.getElementById("cerrarSesion");
         
