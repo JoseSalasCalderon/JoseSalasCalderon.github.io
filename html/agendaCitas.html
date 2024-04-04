@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica Árbol de Seda</title><link rel="stylesheet" type="text/css" href="../css/estilo.css">
     <script src="../js/main.js"></script>
+    <script src="../js/agendarCitas.js"></script>
 </head>
 <body>
     <header>
@@ -31,7 +32,49 @@
     <main>
         <div class="contenido">
             <div class="articulos">
-
+                <div class="formulario formularioAgendarCitas">
+                    <h2>Agendar Cita</h2>
+                    <form id="formulario" method="post">
+                        <div class="agendarCitas">
+                            <div class="agentarCitasSection">
+                                <div>
+                                    <h3>Fecha:</h3>
+                                    <input type="date" list="autocompletar" required>
+                                </div>
+                                <div>
+                                    <h3>Hora:</h3>
+                                    <input type="time" list="autocompletar" required>
+                                </div>
+                                <div>
+                                    <h3>Médico:</h3>
+                                    <select id="filtroMedicos">
+                                        <option value="nombre">Nombre</option>
+                                        <option value="especialidad">Especialidad</option>
+                                        <option value="ubicacion">Ubicación</option>
+                                        <option value="id">Identificación</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <h3>Especialidad:</h3>
+                                    <select id="filtroEspecialidades">
+                                        <option value="nombre">Nombre</option>
+                                        <option value="especialidad">Especialidad</option>
+                                        <option value="ubicacion">Ubicación</option>
+                                        <option value="id">Identificación</option>
+                                    </select>
+                                </div>
+                                <div id="botonesAgendarCitas">
+                                    <input id="agendarCita" type="submit" value="Agendar Cita">
+                                    <input id="cancelarCita" type="submit" value="Cancelar Cita">
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+                <div class="calendario">
+                    <h3>Calendario</h3>
+                </div>
             </div>
         </div>
     </main>

@@ -425,6 +425,44 @@ footer a:hover {
     width: 100%;
 }
 
+
+/*AGENDAR CITAS*/
+.formularioAgendarCitas h2{
+    width: 100%;
+    background-color: #163454;
+    color: #F2F7FC;
+    text-align: center;
+}
+
+.agentarCitasSection div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 3% 0;
+}
+
+.agentarCitasSection div h3 {
+    margin-right: 10%;
+}
+
+.agentarCitasSection div input, .agentarCitasSection div select {
+    width: 50%;
+    height: 2em;
+}
+
+#botonesAgendarCitas {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#botonesAgendarCitas input{
+    width: auto;
+    height: auto;
+    margin-top: 2%;
+}
+
 /*INFORMACIÓN CONTACTO*/
 .contactoArticulo {
     display: flex;
