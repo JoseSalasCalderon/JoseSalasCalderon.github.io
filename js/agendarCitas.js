@@ -188,8 +188,8 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
             //Se obtiene el valor del botón presionado
             const tipoFormulario = boton.value.trim();
+            const cita = obtenerDatosCita();
             if (tipoFormulario === "Agendar") {
-                const cita = obtenerDatosCita();
                 if (cita.fecha === "" || cita.hora === "") {
                     alert("Debe completar los campos.");
                 }else {
@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }; 
             } else {
                 //ELIMINAR
-                console.log("Eliminar");
+                cancelarCita(cita);
             };
         });
     });
@@ -287,8 +287,7 @@ const guardarCita = (cita) => {
             if (citaAgendada.fecha === cita.fecha && citaAgendada.hora === cita.hora && citaAgendada.medicoSeleccionado === cita.medicoSeleccionado &&
                  citaAgendada.especialidadSeleccionada && citaAgendada.cedulaUsuario === cita.cedulaUsuario) {
                 citaRepetida = 1;
-            };
-            
+            }; 
         });
         //Validamos que si la cita no existe, se guarde
         if (citaRepetida === 0) {
@@ -298,5 +297,27 @@ const guardarCita = (cita) => {
         }else {
             alert("Cita ya existente");
         };
+    };
+};
+
+const cancelarCita = (cita) => {
+    var citasAgendadas = JSON.parse(localStorage.getItem('citasAgendadas'));
+
+    if (citasAgendadas === null) {
+        alert("No hay citas registradas");
+    }else {
+        const citasSinRepetir = [];
+        var citaRepetida = 0;
+        citasAgendadas.forEach(citaAgendada => {
+            if (citaAgendada.fecha === cita.fecha && citaAgendada.hora === cita.hora && citaAgendada.medicoSeleccionado === cita.medicoSeleccionado &&
+                citaAgendada.especialidadSeleccionada && citaAgendada.cedulaUsuario === cita.cedulaUsuario) {
+                    citaRepetida = 1;
+            }else{
+                citasSinRepetir.push(citaAgendada);
+            }; 
+        });
+        //Se cancela la cita
+        localStorage.setItem('citasAgendadas', JSON.stringify(citasSinRepetir));
+        alert("Cita Cancelada");
     };
 };
