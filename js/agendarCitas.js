@@ -168,7 +168,7 @@ const medicos = [
 
 document.addEventListener("DOMContentLoaded", () => {
     
-    //Cargar tabla primera vez (ordenar)
+    //Primera vez (ordenar)
     const medicosOrdenadosNombre = ordenarMedicos(medicos, "nombre");
     const especialidades = obtenerEspecialidades(medicosOrdenadosNombre);
     cargarEspecialidades(especialidades);
@@ -181,6 +181,27 @@ document.addEventListener("DOMContentLoaded", () => {
         cargarMedicos(medicosOrdenadosNombre, especialidadSeleccionada);
     });
 
+    //Obtener los botones y sus acciones resctivas para el formulario
+    const botones = document.querySelectorAll(".enviarFormulario");
+    botones.forEach(boton => {
+        boton.addEventListener("click", (event) => {
+            event.preventDefault();
+            //Se obtiene el valor del botón presionado
+            const tipoFormulario = boton.value.trim();
+            if (tipoFormulario === "Agendar") {
+                const cita = obtenerDatosCita();
+                if (cita.fecha === "" || cita.hora === "") {
+                    alert("Debe completar los campos.");
+                }else {
+                    //Agregar la cita
+                    guardarCita(cita);
+                }; 
+            } else {
+                //ELIMINAR
+                console.log("Eliminar");
+            };
+        });
+    });
 });
 
 const cargarMedicos = (medicos, especialidad) => {
@@ -193,7 +214,7 @@ const cargarMedicos = (medicos, especialidad) => {
         if (medicos[index].especialidad === especialidad) {
             const filaMedico = `
             <option value="${medicos[index].id}">
-            ${medicos[index].id} - ${medicos[index].nombre}
+            ${medicos[index].id} - ${medicos[index].nombre} ${medicos[index].apellido}
             </option>
             `;
             comboMedicos.innerHTML += filaMedico;
@@ -237,4 +258,45 @@ const obtenerEspecialidades = (medicos) => {
     };
     const especialidadesSinRepetir = Array.from(especialidades);
     return especialidadesSinRepetir;
+};
+
+const obtenerDatosCita = () => {
+    const fecha = document.getElementById("fecha").value.trim();
+    const hora = document.getElementById("hora").value.trim();
+    const medicosCargados = document.getElementById("filtroMedicos");
+    const especialidadesCargadas = document.getElementById("filtroEspecialidades");
+    const medicoSeleccionado = medicosCargados.value;
+    const especialidadSeleccionada = especialidadesCargadas.value;
+
+    const usuarioSesion = JSON.parse(sessionStorage.getItem('usuarioSesion'));
+    const cedulaUsuario = usuarioSesion.cedula;
+    return {fecha, hora, medicoSeleccionado, especialidadSeleccionada, cedulaUsuario};
+};
+
+const guardarCita = (cita) => {
+    var citasAgendadas = JSON.parse(localStorage.getItem('citasAgendadas'));
+
+    if (citasAgendadas === null) {
+        var citas = [];
+        citas.push(cita);
+        localStorage.setItem('citasAgendadas', JSON.stringify(citas));
+        alert("Cita Agregada");
+    }else {
+        var citaRepetida = 0;
+        citasAgendadas.forEach(citaAgendada => {
+            if (citaAgendada.fecha === cita.fecha && citaAgendada.hora === cita.hora && citaAgendada.medicoSeleccionado === cita.medicoSeleccionado &&
+                 citaAgendada.especialidadSeleccionada && citaAgendada.cedulaUsuario === cita.cedulaUsuario) {
+                citaRepetida = 1;
+            };
+            
+        });
+        //Validamos que si la cita no existe, se guarde
+        if (citaRepetida === 0) {
+            citasAgendadas.push(cita);
+            localStorage.setItem('citasAgendadas', JSON.stringify(citasAgendadas));
+            alert("Cita Agregada");
+        }else {
+            alert("Cita ya existente");
+        };
+    };
 };

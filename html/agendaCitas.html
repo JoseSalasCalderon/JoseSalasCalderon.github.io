@@ -39,33 +39,23 @@
                             <div class="agentarCitasSection">
                                 <div>
                                     <h3>Fecha:</h3>
-                                    <input type="date" list="autocompletar" required>
+                                    <input id="fecha" type="date" required>
                                 </div>
                                 <div>
                                     <h3>Hora:</h3>
-                                    <input type="time" list="autocompletar" required>
+                                    <input id="hora" type="time" required>
                                 </div>
                                 <div>
                                     <h3>Médico:</h3>
-                                    <select id="filtroMedicos">
-                                        <option value="nombre">Nombre</option>
-                                        <option value="especialidad">Especialidad</option>
-                                        <option value="ubicacion">Ubicación</option>
-                                        <option value="id">Identificación</option>
-                                    </select>
+                                    <select id="filtroMedicos"></select>
                                 </div>
                                 <div>
                                     <h3>Especialidad:</h3>
-                                    <select id="filtroEspecialidades">
-                                        <option value="nombre">Nombre</option>
-                                        <option value="especialidad">Especialidad</option>
-                                        <option value="ubicacion">Ubicación</option>
-                                        <option value="id">Identificación</option>
-                                    </select>
+                                    <select id="filtroEspecialidades"></select>
                                 </div>
                                 <div id="botonesAgendarCitas">
-                                    <input id="agendarCita" type="submit" value="Agendar Cita">
-                                    <input id="cancelarCita" type="submit" value="Cancelar Cita">
+                                    <input class="enviarFormulario" id="agendarCita" type="submit" value="Agendar">
+                                    <input class="enviarFormulario" id="cancelarCita" type="submit" value="Eliminar">
                                 </div>
                             </div>
                             
