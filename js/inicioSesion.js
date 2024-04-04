@@ -1,4 +1,5 @@
 var contrasennasIguales = 0;
+var numeroIntentos = 0;
 document.addEventListener("DOMContentLoaded", () => {
     
     validarIgualdadContrasennas();
@@ -81,6 +82,12 @@ const manejarExitoInicioSesion = (usuario) => {
                     window.location.href = '../../index.html';
                 }else {
                     alert("Contraseña Incorrecta");
+                    numeroIntentos++;
+                    if (numeroIntentos === 5) {
+                        numeroIntentos = 0;
+                        window.location.href = '../../index.html';
+                        alert("Demasiados intentos");
+                    };
                 };
             }).catch(error => {
                 console.error("Error al calcular el hash de la contraseña:", error);
