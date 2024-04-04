@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Árbol de Seda</title><link rel="stylesheet" type="text/css" href="../css/estilo.css">
+    <script src="../js/main.js"></script>
+</head>
+<body>
+    <header>
+        <h1 id="tituloGeneral">Clínica Árbol de Seda</h1>
+        <input type="checkbox" id="btn-menu">
+        <label for="btn-menu"><img src="../img/menu-30.png" alt="menu.png"></label>
+        <nav class="menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li id="inicioSesionVista"><a href="inicioSesion.html">Inicio de Sesión</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li id="agendaCitasVista"><a href="agendaCitas.html">Agenda Citas</a></li>
+                <li><a href="informacionContacto.html">Información Contacto</a></li>
+                <li><a href="busquedaMedicos.html">Búsqueda Médicos</a></li>
+                <li><a href="preguntasFrecuentes.html">Preguntas frecuentes</a></li>
+                <li><a href="sobreNosotros.html">Sobre nosotros</a></li>
+                <li><a href="politicaPrivacidad.html">Política de privacidad</a></li>
+                <li id="cerrarSesion"><button>Cerrar Sesión</button></li>
+            </ul>
+        </nav> 
+    </header>
+    <main>
+        <div class="contenido">
+            <div class="formulario">
+                <h2>Recuperar Contraseña</h2>
+                <form id="formulario" method="post">
+                    <div class="usuarios">
+                        <label>Correo Electrónico:</label>
+                        <div id="inputsBusqueda">
+                            <input id="correo" type="email" placeholder="example@gmail.com" required>
+                            <input id="recuperarContrasenna" type="submit" value="Recuperar">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>

@@ -2,6 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
     //Validar inicio de sesion
     validarSesion();
 
+    //Validar boton recuperar contrasenna
+    const botonRecuperarSesion = document.getElementById("recuperarContrasenna");
+    if (botonRecuperarSesion != null) {
+        const formulario = document.getElementById("formulario");
+        formulario.addEventListener("submit", (event) => {
+            event.preventDefault();
+        });
+    };
 });
 
 //Validar la sesión activa en el vista actual
