@@ -175,36 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarMedicos(medicosOrdenadosNombre, especialidades[0]);
 
     
-    //Esto es para que se haga una búsqueda cuando se cambia el combo
-    const filtroEspecialidades= document.getElementById("filtroEspecialidades");
-    filtroEspecialidades.addEventListener("change", () => {
-        const especialidadSeleccionada = filtroEspecialidades.value;
-        cargarMedicos(medicosOrdenadosNombre, especialidadSeleccionada);
-    });
-
-    //Obtener los botones y sus acciones resctivas para el formulario
-    const botones = document.querySelectorAll(".enviarFormulario");
-    botones.forEach(boton => {
-        boton.addEventListener("click", (event) => {
-            event.preventDefault();
-            //Se obtiene el valor del botón presionado
-            const tipoFormulario = boton.value.trim();
-            const cita = obtenerDatosCita();
-            if (tipoFormulario === "Agendar") {
-                if (cita.fecha === "" || cita.hora === "") {
-                    alert("Debe completar los campos.");
-                }else {
-                    //Agregar la cita
-                    guardarCita(cita);
-                }; 
-            } else {
-                //ELIMINAR
-                cancelarCita(cita);
-            };
-        });
-    });
-
-
     //Variables calendario
     const fechaActual = document.querySelector(".fechaActual");
     const dias = document.querySelector(".dias");
@@ -231,13 +201,24 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         //Dias mes actual
+        const citas = obtenerCitas();
         for (let index = 1; index <= ultimaFechaMes; index++) {
-           agregarDias += `<li>${index}</li>`;
+            
+            for (let j = 0; j < citas.length; j++) {
+                partesFechaCita = citas[j].fecha.split("-");
+                const annoCita = parseInt(partesFechaCita[0]);
+                const mesCita = parseInt(partesFechaCita[1]);
+                const diaCita = parseInt(partesFechaCita[2]);
+                if (annoCita === 2024 && mesCita === mesActual+1 && diaCita === index) {
+                    agregarDias += `<li class="diaAgendado">${index}</li>`;
+                };
+            };
+            agregarDias += `<li>${index}</li>`;
         };
 
         //Dias mes posterior
         for (let index = ultimoDiaMes; index < 6; index++) {
-            agregarDias += `<li class="diaPasado">${index - ultimaFechaMes + 1}</li>`;
+            agregarDias += `<li class="diaPasado">${index - ultimoDiaMes + 1}</li>`;
         };
 
 
@@ -246,7 +227,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     cargarCalendario();
-
     //Agregar evento de click a los a
     botonesAnteriorSiguiente.forEach(boton => {
         boton.addEventListener("click", () =>{
@@ -269,6 +249,36 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             cargarCalendario();
+        });
+    });
+
+    //Esto es para que se haga una búsqueda cuando se cambia el combo
+    const filtroEspecialidades= document.getElementById("filtroEspecialidades");
+    filtroEspecialidades.addEventListener("change", () => {
+        const especialidadSeleccionada = filtroEspecialidades.value;
+        cargarMedicos(medicosOrdenadosNombre, especialidadSeleccionada);
+    });
+    //Obtener los botones y sus acciones resctivas para el formulario
+    const botones = document.querySelectorAll(".enviarFormulario");
+    botones.forEach(boton => {
+        boton.addEventListener("click", (event) => {
+            event.preventDefault();
+            //Se obtiene el valor del botón presionado
+            const tipoFormulario = boton.value.trim();
+            const cita = obtenerDatosCita();
+            if (tipoFormulario === "Agendar") {
+                if (cita.fecha === "" || cita.hora === "") {
+                    alert("Debe completar los campos.");
+                }else {
+                    //Agregar la cita
+                    guardarCita(cita);
+                    cargarCalendario();
+                }; 
+            } else {
+                //ELIMINAR
+                cancelarCita(cita);
+                cargarCalendario();
+            };
         });
     });
 
@@ -390,4 +400,20 @@ const cancelarCita = (cita) => {
         localStorage.setItem('citasAgendadas', JSON.stringify(citasSinRepetir));
         alert("Cita Cancelada");
     };
+};
+
+const obtenerCitas = () => {
+    var citasAgendadas = JSON.parse(localStorage.getItem('citasAgendadas'));
+    var usuarioSesion = JSON.parse(sessionStorage.getItem('usuarioSesion'));
+    const citasUsuario= [];
+    if (citasAgendadas === null) {
+        alert("No hay citas registradas");
+    }else {
+        citasAgendadas.forEach(citaAgendada => {
+            if (citaAgendada.cedulaUsuario === usuarioSesion.cedula) {
+                citasUsuario.push(citaAgendada);
+            };
+        });
+    };
+    return citasUsuario;
 };
