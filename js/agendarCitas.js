@@ -203,17 +203,22 @@ document.addEventListener("DOMContentLoaded", () => {
         //Dias mes actual
         const citas = obtenerCitas();
         for (let index = 1; index <= ultimaFechaMes; index++) {
-            
+            let citaEncontrada = 0;
             for (let j = 0; j < citas.length; j++) {
                 partesFechaCita = citas[j].fecha.split("-");
                 const annoCita = parseInt(partesFechaCita[0]);
                 const mesCita = parseInt(partesFechaCita[1]);
                 const diaCita = parseInt(partesFechaCita[2]);
                 if (annoCita === 2024 && mesCita === mesActual+1 && diaCita === index) {
-                    agregarDias += `<li class="diaAgendado">${index}</li>`;
+                    //MANDARLE LA CITA AL ONCLIK PARA DESPLEGAR UN MODAL
+                    //IF QUE VALIDE EL ESTADO TAMBIEN
+                    agregarDias += `<li onclick="mostrarInformacionCita(${index})" class="diaAgendado">${index}</li>`;
+                    citaEncontrada = 1;
                 };
             };
-            agregarDias += `<li>${index}</li>`;
+            if (citaEncontrada === 0) {
+                agregarDias += `<li>${index}</li>`;
+            };
         };
 
         //Dias mes posterior
@@ -397,8 +402,12 @@ const cancelarCita = (cita) => {
             }; 
         });
         //Se cancela la cita
-        localStorage.setItem('citasAgendadas', JSON.stringify(citasSinRepetir));
-        alert("Cita Cancelada");
+        if (citaRepetida === 1) {
+            localStorage.setItem('citasAgendadas', JSON.stringify(citasSinRepetir));
+            alert("Cita Cancelada");
+        }else {
+            alert("La cita no existe");
+        };
     };
 };
 
@@ -416,4 +425,8 @@ const obtenerCitas = () => {
         });
     };
     return citasUsuario;
+};
+
+const mostrarInformacionCita = (diaCita) => {
+    console.log("dia: "+ diaCita);
 };
