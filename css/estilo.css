@@ -463,6 +463,108 @@ footer a:hover {
     margin-top: 2%;
 }
 
+/*Calendario*/
+.contenedorCalendario {
+    width: 25em;
+    display: flex;
+    flex-direction: column;
+    margin: 2em auto;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+}
+
+.contenedorCalendario h3 {
+    padding: 1em;
+    text-align: center;
+    font-size: 1.4em;
+    background-color: #163454;
+    color: #F2F7FC;
+}
+
+#barraCalendario {
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+}
+
+#barraCalendario .fechaActual {
+    font-size: 1.45em;
+    font-weight: bold;
+}
+
+#barraCalendario .botonesCalendario a {
+    font-size: 1.5em;
+    margin: 0 5px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 30px;
+    padding: 0.3em;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#barraCalendario .botonesCalendario a:hover {
+    background: #5893D4;
+}
+
+.calendario ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.calendario .dias {
+    margin-bottom: 1em;
+}
+
+.calendario .semanas li {
+    background: #5893D4;
+    font-weight: bold;
+}
+
+.calendario .dias li {
+    z-index: 1;
+    cursor: pointer;
+    margin-top: 1.5em;
+    font-weight: bold;
+}
+
+.dias li.diaPasado {
+    color: #cac8c8;
+    font-weight: bold;
+}
+
+.dias li.diaAgendado {
+    color: #F2F7FC;
+}
+
+.calendario ul li {
+    position: relative;
+    width: calc(100%/7);
+}
+
+.calendario .dias li::before {
+    position: absolute;
+    content: "";
+    width: 2em;
+    height: 2em;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dias li:hover::before {
+    background: #bcdafa;
+}
+
+.dias li.diaAgendado::before {
+    background: green;
+}
+
 /*INFORMACIÓN CONTACTO*/
 .contactoArticulo {
     display: flex;
@@ -1004,6 +1106,16 @@ iframe {
         width: 100%;
     }
 
+    /*Responsive Agendar Citas*/
+    .contenedorCalendario {
+        width: 100%;
+    }
+    #barraCalendario .botonesCalendario a {
+        font-size: 1em;
+        margin: 0 3px;
+    }
+
+    
     /*Responsive Servicios*/
     .descripcionServicios, #tituloTiposCitas, .tiposCitas, .informacionMedicos, .especialidades {
         width: 100%;
@@ -1097,5 +1209,12 @@ iframe {
     }
     .resultados{
         font-size: 100%;
+    }
+    .contenedorCalendario {
+        width: 25em;
+    }
+    #barraCalendario .botonesCalendario a {
+        font-size: 1em;
+        margin: 0 3px;
     }
 }
