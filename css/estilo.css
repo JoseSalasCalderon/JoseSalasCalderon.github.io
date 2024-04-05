@@ -470,13 +470,13 @@ footer a:hover {
     flex-direction: column;
     margin: 2em auto;
     background-color: #F2F2F2;
-    border-radius: 10px;
+    border: 0.1em solid #000;
 }
 
 .contenedorCalendario h3 {
     padding: 1em;
     text-align: center;
-    font-size: 1.4em;
+    font-size: 1.5em;
     background-color: #163454;
     color: #F2F7FC;
 }

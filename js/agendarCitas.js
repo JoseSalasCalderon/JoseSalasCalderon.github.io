@@ -174,6 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarEspecialidades(especialidades);
     cargarMedicos(medicosOrdenadosNombre, especialidades[0]);
 
+    
     //Esto es para que se haga una búsqueda cuando se cambia el combo
     const filtroEspecialidades= document.getElementById("filtroEspecialidades");
     filtroEspecialidades.addEventListener("change", () => {
@@ -202,6 +203,75 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         });
     });
+
+
+    //Variables calendario
+    const fechaActual = document.querySelector(".fechaActual");
+    const dias = document.querySelector(".dias");
+    const botonesAnteriorSiguiente = document.querySelectorAll(".botonesCalendario a");
+
+    //Datos de la fecha actual
+    let fecha = new Date();
+    let annoActual = fecha.getFullYear();
+    let mesActual = fecha.getMonth();
+
+    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+                   "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    
+    const cargarCalendario = () => {
+        let primerDiaMes = new Date(annoActual, mesActual, 1).getDay(); //Se obtiene la posición del día del primer día
+        let ultimaFechaMes = new Date(annoActual, mesActual + 1, 0).getDate();
+        let ultimoDiaMes = new Date(annoActual, mesActual, ultimaFechaMes).getDay();
+        let ultimaFechaDeMesAnterior = new Date(annoActual, mesActual, 0).getDate();
+        let agregarDias = "";
+
+        //Dias mes anterior
+        for (let index = primerDiaMes; index > 0; index--) {
+            agregarDias += `<li class="diaPasado">${ultimaFechaDeMesAnterior - index + 1}</li>`;
+        };
+
+        //Dias mes actual
+        for (let index = 1; index <= ultimaFechaMes; index++) {
+           agregarDias += `<li>${index}</li>`;
+        };
+
+        //Dias mes posterior
+        for (let index = ultimoDiaMes; index < 6; index++) {
+            agregarDias += `<li class="diaPasado">${index - ultimaFechaMes + 1}</li>`;
+        };
+
+
+        fechaActual.innerHTML = `${meses[mesActual]} ${annoActual}`;
+        dias.innerHTML = agregarDias;
+    };
+
+    cargarCalendario();
+
+    //Agregar evento de click a los a
+    botonesAnteriorSiguiente.forEach(boton => {
+        boton.addEventListener("click", () =>{
+            if (boton.id === "anterior") {
+                if (mesActual > 0) {
+                    mesActual = mesActual - 1;
+                };
+            }else{
+                if (mesActual < 11) {
+                    mesActual = mesActual + 1;
+                };
+            };
+
+            if (annoActual < 0 || mesActual > 11) {
+                fecha = new Date(annoActual, mesActual);
+                annoActual = fecha.getFullYear();
+                mesActual = fecha.getMonth();
+            }else{
+                fecha = new Date();
+            };
+
+            cargarCalendario();
+        });
+    });
+
 });
 
 const cargarMedicos = (medicos, especialidad) => {
