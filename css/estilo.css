@@ -562,7 +562,7 @@ footer a:hover {
 }
 
 .dias li.diaAgendado::before {
-    background: green;
+    background: rgb(50, 172, 125);
 }
 
 /*INFORMACIÓN CONTACTO*/
@@ -757,7 +757,7 @@ iframe {
     padding: 0.1em 0.3em;
 }
 
-#modalInformacionMedico {
+.modal {
     position: fixed;
     display: none;
     flex-direction: column;
@@ -766,7 +766,7 @@ iframe {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    z-index: 0; 
+    z-index: 2; 
     top: 0;
 }
 
@@ -794,13 +794,23 @@ iframe {
     font-weight: bold;
 }
 
-#informacionMedico {
+#informacionMedico, #informacionCita {
     margin-top: 1em;
     width: 100%;
     padding: 1em;
 }
 
 #informacionMedico h3 {
+    font-size: 1.3em;
+    color: #F2F7FC;
+    background-color: #5893D4;
+    border-top: 2px solid #163454;
+    border-left: 2px solid #163454;
+    border-right: 2px solid #163454;
+    padding: 0.2em;
+}
+
+#informacionCita h3 {
     font-size: 1.3em;
     color: #F2F7FC;
     background-color: #5893D4;
@@ -824,7 +834,35 @@ iframe {
     overflow: auto;
 }
 
+#informacionCita p {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 3%;
+    display: flex;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #163454;
+    border-left: 2px solid #163454;
+    border-right: 2px solid #163454;
+    padding-left: 0.5em;
+    overflow: auto;
+}
+
 #informacionMedico ul {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 3%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #163454;
+    border-left: 2px solid #163454;
+    border-right: 2px solid #163454;
+    padding-left: 1em;
+}
+
+#informacionCita ul {
     font-weight: bold;
     font-size: 1.1em;
     margin-bottom: 3%;

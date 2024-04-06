@@ -210,13 +210,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 const mesCita = parseInt(partesFechaCita[1]);
                 const diaCita = parseInt(partesFechaCita[2]);
                 if (annoCita === 2024 && mesCita === mesActual+1 && diaCita === index) {
-                    //MANDARLE LA CITA AL ONCLIK PARA DESPLEGAR UN MODAL
                     //IF QUE VALIDE EL ESTADO TAMBIEN
-                    agregarDias += `<li onclick="mostrarInformacionCita(${index})" class="diaAgendado">${index}</li>`;
+                    agregarDias += `<li onclick="mostrarInformacionCita('${citas[j].cedulaUsuario}', '${citas[j].fecha}', '${citas[j].hora}', '${citas[j].medicoSeleccionado}', '${citas[j].especialidadSeleccionada}')" class="diaAgendado">${index}</li>`;
                     citaEncontrada = 1;
                 };
             };
             if (citaEncontrada === 0) {
+                //Se agrega un campo normal
                 agregarDias += `<li>${index}</li>`;
             };
         };
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
             agregarDias += `<li class="diaPasado">${index - ultimoDiaMes + 1}</li>`;
         };
 
-
+        //Agegar los datos al calendario
         fechaActual.innerHTML = `${meses[mesActual]} ${annoActual}`;
         dias.innerHTML = agregarDias;
     };
@@ -280,13 +280,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     cargarCalendario();
                 }; 
             } else {
-                //ELIMINAR
+                //Cancelar la cita
                 cancelarCita(cita);
                 cargarCalendario();
             };
         });
     });
-
 });
 
 const cargarMedicos = (medicos, especialidad) => {
@@ -368,19 +367,27 @@ const guardarCita = (cita) => {
         alert("Cita Agregada");
     }else {
         var citaRepetida = 0;
+        var fechaRepetida = 0;
         citasAgendadas.forEach(citaAgendada => {
             if (citaAgendada.fecha === cita.fecha && citaAgendada.hora === cita.hora && citaAgendada.medicoSeleccionado === cita.medicoSeleccionado &&
                  citaAgendada.especialidadSeleccionada && citaAgendada.cedulaUsuario === cita.cedulaUsuario) {
                 citaRepetida = 1;
             }; 
+            if (citaAgendada.fecha === cita.fecha) {
+                fechaRepetida = 1;
+            };
         });
         //Validamos que si la cita no existe, se guarde
-        if (citaRepetida === 0) {
+        if (citaRepetida === 0 && fechaRepetida === 0) {
             citasAgendadas.push(cita);
             localStorage.setItem('citasAgendadas', JSON.stringify(citasAgendadas));
             alert("Cita Agregada");
         }else {
-            alert("Cita ya existente");
+            if (citaRepetida === 0 && fechaRepetida === 1) {
+                alert("Ya hay una cita en este día");
+            }else {
+                alert("Cita ya existente");
+            };
         };
     };
 };
@@ -415,9 +422,7 @@ const obtenerCitas = () => {
     var citasAgendadas = JSON.parse(localStorage.getItem('citasAgendadas'));
     var usuarioSesion = JSON.parse(sessionStorage.getItem('usuarioSesion'));
     const citasUsuario= [];
-    if (citasAgendadas === null) {
-        alert("No hay citas registradas");
-    }else {
+    if (citasAgendadas != null) {
         citasAgendadas.forEach(citaAgendada => {
             if (citaAgendada.cedulaUsuario === usuarioSesion.cedula) {
                 citasUsuario.push(citaAgendada);
@@ -427,6 +432,31 @@ const obtenerCitas = () => {
     return citasUsuario;
 };
 
-const mostrarInformacionCita = (diaCita) => {
-    console.log("dia: "+ diaCita);
+const mostrarInformacionCita = (cedulaUsuario, fecha, hora, medicoSeleccionado, especialidadSeleccionada) => {
+    const informacionCita = document.getElementById("informacionCita");
+    const datosCompletosCita= `
+        <h3>Cédula:</h3>
+        <p>${cedulaUsuario}</p>
+        <h3>Fecha:</h3>
+        <p>${fecha}</p>
+        <h3>Hora:</h3>
+        <p>${hora}</p>
+        <h3>Médico:</h3>
+        <p>${medicoSeleccionado}</p>
+        <h3>Especialidad:</h3>
+        <p>${especialidadSeleccionada}</p>
+    `;
+
+    informacionCita.innerHTML = datosCompletosCita;
+    abrirModalCita();
+};
+
+const abrirModalCita = () => {
+    const modal = document.getElementById("modalInformacionCita");
+    modal.style.display = "flex";
+};
+
+const cerrarModalCita = () => {
+    const modal = document.getElementById("modalInformacionCita");
+    modal.style.display = "none";
 };
