@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const validarSesion = () =>{
     var usuarioSesion = JSON.parse(sessionStorage.getItem('usuarioSesion'));
     const iniciarSesion = document.getElementById("inicioSesionVista");
+    const saludoUsuario = document.getElementById("saludoUsuario");
     if (usuarioSesion != null) {
         const agendarCitas = document.getElementById("agendaCitasVista");
         const botoncerrarSesion = document.getElementById("cerrarSesion");
@@ -24,9 +25,13 @@ const validarSesion = () =>{
             cerrarSesion();
         });
         
+        
         agendarCitas.style.display = "block";
         iniciarSesion.style.display = "none";
         botoncerrarSesion.style.display = "block";
+
+        saludoUsuario.innerHTML = "Bienvenido "+usuarioSesion.nombreCompleto;
+        saludoUsuario.style.display = "block";
     }else {
         iniciarSesion.style.display = "block";
     };
