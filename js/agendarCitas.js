@@ -410,7 +410,7 @@ const cancelarCita = (cita) => {
         var citaRepetida = 0;
         citasAgendadas.forEach(citaAgendada => {
             if (citaAgendada.fecha === cita.fecha && citaAgendada.hora === cita.hora && citaAgendada.medicoSeleccionado === cita.medicoSeleccionado &&
-                citaAgendada.especialidadSeleccionada && citaAgendada.cedulaUsuario === cita.cedulaUsuario && citaAgendada.estadoCita === "Agendada") {
+                citaAgendada.especialidadSeleccionada && citaAgendada.cedulaUsuario === cita.cedulaUsuario && (citaAgendada.estadoCita === "Agendada" || citaAgendada.estadoCita === "Confirmar")) {
                     citaRepetida = 1;
                     citaAgendada.estadoCita = "Cancelada";
                     citasSinRepetir.push(citaAgendada);
