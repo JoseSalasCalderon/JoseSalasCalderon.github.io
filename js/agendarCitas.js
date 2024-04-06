@@ -210,8 +210,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 const mesCita = parseInt(partesFechaCita[1]);
                 const diaCita = parseInt(partesFechaCita[2]);
                 if (annoCita === 2024 && mesCita === mesActual+1 && diaCita === index) {
-                    //IF QUE VALIDE EL ESTADO TAMBIEN
-                    agregarDias += `<li onclick="mostrarInformacionCita('${citas[j].cedulaUsuario}', '${citas[j].fecha}', '${citas[j].hora}', '${citas[j].medicoSeleccionado}', '${citas[j].especialidadSeleccionada}')" class="diaAgendado">${index}</li>`;
+                    //Validar los estados de las citas para su representacion en el calendario
+                    if (citas[j].estadoCita === "Agendada") {
+                        agregarDias += `<li onclick="mostrarInformacionCita('${citas[j].cedulaUsuario}', '${citas[j].fecha}', '${citas[j].hora}', '${citas[j].medicoSeleccionado}', '${citas[j].especialidadSeleccionada}', '${citas[j].estadoCita}')" class="diaAgendado">${index}</li>`;
+                    }else if (citas[j].estadoCita === "Cancelada"){
+                        agregarDias += `<li onclick="mostrarInformacionCita('${citas[j].cedulaUsuario}', '${citas[j].fecha}', '${citas[j].hora}', '${citas[j].medicoSeleccionado}', '${citas[j].especialidadSeleccionada}', '${citas[j].estadoCita}')" class="diaCancelado">${index}</li>`;
+                    }
                     citaEncontrada = 1;
                 };
             };
@@ -276,6 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     alert("Debe completar los campos.");
                 }else {
                     //Agregar la cita
+                    cita.estadoCita = "Agendada";
                     guardarCita(cita);
                     cargarCalendario();
                 }; 
@@ -354,7 +359,8 @@ const obtenerDatosCita = () => {
 
     const usuarioSesion = JSON.parse(sessionStorage.getItem('usuarioSesion'));
     const cedulaUsuario = usuarioSesion.cedula;
-    return {fecha, hora, medicoSeleccionado, especialidadSeleccionada, cedulaUsuario};
+    const estadoCita = "";
+    return {fecha, hora, medicoSeleccionado, especialidadSeleccionada, cedulaUsuario, estadoCita};
 };
 
 const guardarCita = (cita) => {
@@ -402,8 +408,10 @@ const cancelarCita = (cita) => {
         var citaRepetida = 0;
         citasAgendadas.forEach(citaAgendada => {
             if (citaAgendada.fecha === cita.fecha && citaAgendada.hora === cita.hora && citaAgendada.medicoSeleccionado === cita.medicoSeleccionado &&
-                citaAgendada.especialidadSeleccionada && citaAgendada.cedulaUsuario === cita.cedulaUsuario) {
+                citaAgendada.especialidadSeleccionada && citaAgendada.cedulaUsuario === cita.cedulaUsuario && citaAgendada.estadoCita === "Agendada") {
                     citaRepetida = 1;
+                    citaAgendada.estadoCita = "Cancelada";
+                    citasSinRepetir.push(citaAgendada);
             }else{
                 citasSinRepetir.push(citaAgendada);
             }; 
@@ -432,7 +440,7 @@ const obtenerCitas = () => {
     return citasUsuario;
 };
 
-const mostrarInformacionCita = (cedulaUsuario, fecha, hora, medicoSeleccionado, especialidadSeleccionada) => {
+const mostrarInformacionCita = (cedulaUsuario, fecha, hora, medicoSeleccionado, especialidadSeleccionada, estadoCita) => {
     const informacionCita = document.getElementById("informacionCita");
     const datosCompletosCita= `
         <h3>Cédula:</h3>
@@ -445,6 +453,8 @@ const mostrarInformacionCita = (cedulaUsuario, fecha, hora, medicoSeleccionado, 
         <p>${medicoSeleccionado}</p>
         <h3>Especialidad:</h3>
         <p>${especialidadSeleccionada}</p>
+        <h3>Estado:</h3>
+        <p>${estadoCita}</p>
     `;
 
     informacionCita.innerHTML = datosCompletosCita;

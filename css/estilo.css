@@ -540,6 +540,10 @@ footer a:hover {
     color: #F2F7FC;
 }
 
+.dias li.diaCancelado {
+    color: #F2F7FC;
+}
+
 .calendario ul li {
     position: relative;
     width: calc(100%/7);
@@ -563,6 +567,10 @@ footer a:hover {
 
 .dias li.diaAgendado::before {
     background: rgb(50, 172, 125);
+}
+
+.dias li.diaCancelado::before {
+    background: rgb(125, 125, 125);
 }
 
 /*INFORMACIÓN CONTACTO*/
