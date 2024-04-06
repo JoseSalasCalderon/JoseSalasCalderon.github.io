@@ -540,6 +540,10 @@ footer a:hover {
     color: #F2F7FC;
 }
 
+.dias li.diaConfirmar {
+    color: #F2F7FC;
+}
+
 .dias li.diaCancelado {
     color: #F2F7FC;
 }
@@ -569,9 +573,14 @@ footer a:hover {
     background: rgb(50, 172, 125);
 }
 
+.dias li.diaConfirmar::before {
+    background: rgb(243, 136, 136);
+}
+
 .dias li.diaCancelado::before {
     background: rgb(125, 125, 125);
 }
+
 
 /*INFORMACIÓN CONTACTO*/
 .contactoArticulo {

@@ -213,6 +213,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     //Validar los estados de las citas para su representacion en el calendario
                     if (citas[j].estadoCita === "Agendada") {
                         agregarDias += `<li onclick="mostrarInformacionCita('${citas[j].cedulaUsuario}', '${citas[j].fecha}', '${citas[j].hora}', '${citas[j].medicoSeleccionado}', '${citas[j].especialidadSeleccionada}', '${citas[j].estadoCita}')" class="diaAgendado">${index}</li>`;
+                    }else if (citas[j].estadoCita === "Confirmar"){
+                        agregarDias += `<li onclick="mostrarInformacionCita('${citas[j].cedulaUsuario}', '${citas[j].fecha}', '${citas[j].hora}', '${citas[j].medicoSeleccionado}', '${citas[j].especialidadSeleccionada}', '${citas[j].estadoCita}')" class="diaConfirmar">${index}</li>`;
                     }else if (citas[j].estadoCita === "Cancelada"){
                         agregarDias += `<li onclick="mostrarInformacionCita('${citas[j].cedulaUsuario}', '${citas[j].fecha}', '${citas[j].hora}', '${citas[j].medicoSeleccionado}', '${citas[j].especialidadSeleccionada}', '${citas[j].estadoCita}')" class="diaCancelado">${index}</li>`;
                     }
@@ -280,7 +282,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     alert("Debe completar los campos.");
                 }else {
                     //Agregar la cita
-                    cita.estadoCita = "Agendada";
+                    cita.estadoCita = "Confirmar";
                     guardarCita(cita);
                     cargarCalendario();
                 }; 
